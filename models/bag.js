@@ -8,6 +8,7 @@ const bagSchema = new mongoose.Schema({
   image: String,
   detail: String,
   description: String,
+  stock: Number,
   price: Number
 });
 

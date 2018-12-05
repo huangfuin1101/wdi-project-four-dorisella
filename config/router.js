@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const bagCtrl = require('../controllers/bagCtrl');
 const authCtrl = require('../controllers/authCtrl');
+const purchasesCtrl = require('../controllers/purchasesCtrl');
 
 
 router.route('/bags')
@@ -15,6 +16,9 @@ router.route('/bags/:id')
 
 router.post('/register', authCtrl.registerRoute);
 router.post('/login', authCtrl.loginRoute);
+
+router.post('/checkout', purchasesCtrl.createRoute);
+router.get('/purchases', purchasesCtrl.userIndexRoute);
 
 
 module.exports = router;
