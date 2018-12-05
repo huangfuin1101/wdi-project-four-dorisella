@@ -57,7 +57,7 @@ const bagData =[
     image: 'https://www.chanel.com/images/u_sample,w_5000,h_1,g_south,b_white/e_trim:0/c_crop,w_iw,h_ih/u_sample,w_5000,h_1,g_north,b_white/e_trim:0/c_crop,w_iw,h_ih/c_pad,w_iw,h_ih/e_trim:0/q_auto,f_auto,fl_lossy,dpr_auto/w_1096/small-classic-handbag-navy-blue-lambskin-gold-tone-metal-lambskin-gold-tone-metal-packshot-default-a01113y255395b313-8805002969118.jpg',
     detail: ' Lambskin  Navy Blue 14.5 × 6 × 23 cm',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    price: 425
+    price: 3810
   }];
 
 

@@ -18,7 +18,8 @@ class Index extends React.Component{
       <div className="index">
         <div className="columns is-multiline is-mobile">
           {this.state.bags ?
-            this.state.bags.map(bag => <BagBox key={bag._id} bag={bag} />)
+            this.state.bags.map(bag =>
+              <BagBox key={bag._id} bag={bag} />)
             :
             <p> Loading...</p>
           }

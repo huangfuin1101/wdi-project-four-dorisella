@@ -9,6 +9,8 @@ function BagBox ({ bag }){
         <figure className="image index-img">
           <img  src={ bag.image} />
         </figure>
+        <p>{ bag.name }</p>
+        <p>£ { bag.price }</p>
       </Link>
     </div>
   );
