@@ -14,3 +14,12 @@
     }
   }
 }
+.home{
+  margin-top: 15vh;
+  #title{
+    font-size: 90px;
+     &:hover{
+        opacity: 0.2;
+    }
+  }
+}
