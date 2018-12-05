@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const bagCtrl = require('../controllers/bagCtrl');
+const authCtrl = require('../controllers/authCtrl');
 
 
 router.route('/bags')
@@ -12,7 +13,8 @@ router.route('/bags/:id')
   .delete(bagCtrl.deleteRoute);
 
 
-
+router.post('/register', authCtrl.registerRoute);
+router.post('/login', authCtrl.loginRoute);
 
 
 module.exports = router;

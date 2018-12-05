@@ -38,15 +38,7 @@ function updateRoute(req, res, next) {
     .then(bag => res.json(bag))
     .catch(next);
 }
-// 
-// function deleteRoute(req, res, next) {
-//   console.log('delete a bag');
-//   Bag
-//     .findById(req.params.id)
-//     .then(bag => bag.remove())
-//     .then(() => res.status(204))
-//     .catch(next);
-// }
+
 
 function deleteRoute(req, res, next) {
   Bag
