@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Flash from './components/Flash';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Header from './components/Header';
@@ -24,6 +25,7 @@ class App extends React.Component {
           <div className="hero-body">
             <div className="container">
               <Header />
+              <Flash />
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/bags" component={BagIndex} />

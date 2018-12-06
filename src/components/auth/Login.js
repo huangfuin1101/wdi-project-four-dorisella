@@ -1,6 +1,7 @@
 import React  from 'react';
 import axios from 'axios';
-import { saveToken } from '../../lib/auth';
+import { saveToken, decodeToken } from '../../lib/auth';
+import { createFlashMessage } from '../../lib/flash';
 
 
 class Login extends React.Component {
@@ -17,6 +18,12 @@ class Login extends React.Component {
       .then(result => {
         saveToken(result.data.token);
         this.props.history.push('/bags');
+        createFlashMessage(`Welcome back ${decodeToken().username}`);
+      })
+      .catch((error) => {
+        createFlashMessage(error.response.data.message, 'danger');
+        this.props.history.replace('/login');
+        console.log('this is error.response.data.message', error.response.data.message);
       });
   }
   handleChange({ target: { name, value }}) {
