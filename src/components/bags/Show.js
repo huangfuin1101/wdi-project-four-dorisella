@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BagShowSection from './BagShowSection';
 import { addItem } from '../../lib/basket';
+import { isAdmin } from '../../lib/auth';
 
 
 
@@ -14,7 +15,6 @@ export default class BagShow extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-
   }
 
   componentDidMount() {
@@ -41,7 +41,6 @@ export default class BagShow extends React.Component {
     this.setState({ [name]: value });
   }
 
-
   render() {
     const bag = this.state.bag;
     return (
@@ -53,32 +52,22 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
-
-
         <div className="columns">
-
           <div className="field column is-8">
             <label htmlFor="quantity" className="label">Quantity</label>
             <input className="input" type="number" max='10' min='1' name="quantity"
               value={this.state.quantity || 0} onChange={this.handleChange}/>
           </div>
-
           <div className="column is-5 is-offset-1">
             <button className="button" onClick={this.handleClick}>Add to basket</button>
           </div>
         </div>
-
-
         <div>
-
-          <button className="button is-dark has-text-centered deletebtn" onClick={this.handleDelete} >Delete</button>
-          <Link to={`/bags/${this.props.match.params.id}/edit`}>
+          { isAdmin() && <button className="button is-dark has-text-centered deletebtn" onClick={this.handleDelete} >Delete</button>}
+          { isAdmin() &&  <Link to={`/bags/${this.props.match.params.id}/edit`}>
             <button className="button is-light has-text-centered edit">Edit</button>
-          </Link>
+          </Link>}
         </div>
-
-
-
       </section>
     );
   }

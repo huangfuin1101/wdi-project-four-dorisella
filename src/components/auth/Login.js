@@ -13,10 +13,11 @@ class Login extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    console.log( 'Login', this.state);
+    console.log( 'Login', this.state.email);
     axios.post('/api/login', this.state)
       .then(result => {
         saveToken(result.data.token);
+        console.log('this is result',result);
         createFlashMessage(`Welcome back ${decodeToken().username.toUpperCase()}`);
         this.props.history.push('/bags');
       })

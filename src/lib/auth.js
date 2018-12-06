@@ -8,6 +8,7 @@ export function saveToken(token){
 
 
 export function decodeToken() {
+  console.log('this is token', token);
   const token = getToken();
   if(!token) return {};
   const decoded = JSON.parse(atob(token.split('.')[1]));
@@ -21,4 +22,10 @@ export function deleteToken() {
 
 export function isAuthenticated() {
   return !!getToken();
+}
+
+export function isAdmin(){
+  if(decodeToken().check) {
+    return decodeToken();
+  }
 }
