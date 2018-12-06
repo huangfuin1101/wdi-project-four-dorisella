@@ -30,8 +30,8 @@ class Header extends React.Component {
             <Link className="navbar-item" to='/bags/new'> Add an item</Link>
             {!isAuthenticated() && <Link className="navbar-item" to='/login'> Login</Link>}
             {!isAuthenticated() && <Link className="navbar-item" to='/register'> Register</Link>}
+            {isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Logout { username.toUpperCase() }</a>}
             <Link className="navbar-item" to='/basket'> Shopping Cart</Link>
-            {isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>Logout { username }</a>}
             <Link className="navbar-item" to='/purchases'> Purchase history</Link>
             {/* {isAuthenticated() && <p className="navbar-item">Welcome back! {decodeToken().username}</p>} */}
 

@@ -1,9 +1,9 @@
 export function getToken() {
-  return localStorage.getItem('wonders-token');
+  return localStorage.getItem('bags-token');
 }
 
 export function saveToken(token){
-  localStorage.setItem('wonders-token', token);
+  localStorage.setItem('bags-token', token);
 }
 
 
@@ -15,7 +15,8 @@ export function decodeToken() {
 }
 
 export function deleteToken() {
-  localStorage.removeItem('wonders-token');
+  console.log('logout');
+  localStorage.removeItem('bags-token');
 }
 
 export function isAuthenticated() {

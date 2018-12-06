@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BagShowSection from './BagShowSection';
+import { addItem } from '../../lib/basket';
 
 
 
@@ -11,6 +12,8 @@ export default class BagShow extends React.Component {
     super(props);
     this.state = {};
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
   }
 
@@ -27,6 +30,18 @@ export default class BagShow extends React.Component {
       .then( () => this.props.history.push('/bags'));
   }
 
+  handleClick() {
+    // console.log(quantity);
+    addItem(this.state.bag, parseInt(this.state.quantity));
+    this.props.history.push('/basket');
+  }
+
+  handleChange({ target: {name, value }}) {
+    console.log('this is name', { [name]: value });
+    this.setState({ [name]: value });
+  }
+
+
   render() {
     const bag = this.state.bag;
     return (
@@ -38,6 +53,21 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
+
+
+        <div className="columns">
+
+          <div className="field column is-8">
+            <label htmlFor="quantity" className="label">Quantity</label>
+            <input className="input" type="number" max='10' min='1' name="quantity"
+              value={this.state.quantity || 0} onChange={this.handleChange}/>
+          </div>
+
+          <div className="column is-5 is-offset-1">
+            <button className="button" onClick={this.handleClick}>Add to basket</button>
+          </div>
+        </div>
+
 
         <div>
 

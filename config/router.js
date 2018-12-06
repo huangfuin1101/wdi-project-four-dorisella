@@ -2,11 +2,13 @@ const router = require('express').Router();
 const bagCtrl = require('../controllers/bagCtrl');
 const authCtrl = require('../controllers/authCtrl');
 const purchasesCtrl = require('../controllers/purchasesCtrl');
+const secureRoute = require('../lib/secureRoute');
+// const adminCheck = require('../lib/adminRoute');
 
 
 router.route('/bags')
-  .get(bagCtrl.indexRoute)
-  .post(bagCtrl.createRoute);
+  .get( bagCtrl.indexRoute)
+  .post(secureRoute, bagCtrl.createRoute);
 
 router.route('/bags/:id')
   .get(bagCtrl.showRoute)

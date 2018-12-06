@@ -9,6 +9,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre('save', function(){
+  console.log('this is this.password', this.password );
   this.password = bcrypt.hashSync(this.password, 8);
 });
 

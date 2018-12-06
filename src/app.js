@@ -10,8 +10,8 @@ import BagNew from './components/bags/New';
 import BagEdit from './components/bags/Edit';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-// import Basket from './components/basket/Basket';
-// import Purchase from './components/basket/PurchaseHistory';
+import Basket from './components/basket/Basket';
+import Purchase from './components/basket/PurchaseHistory';
 
 
 import 'bulma';
@@ -32,10 +32,10 @@ class App extends React.Component {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/bags/new" component={BagNew} />
+                <Route exact path="/basket" component={Basket} />
+                <Route exact path="/purchases" component={Purchase} />
                 <Route path="/bags/:id/edit" component={BagEdit} />
                 <Route path="/bags/:id" component={BagShow} />
-                {/* <Route exact path="/basket" component={Basket} />
-                <Route exact path="/purchases" component={Purchase} /> */}
               </Switch>
             </div>
           </div>

@@ -17,8 +17,8 @@ class Login extends React.Component {
     axios.post('/api/login', this.state)
       .then(result => {
         saveToken(result.data.token);
+        createFlashMessage(`Welcome back ${decodeToken().username.toUpperCase()}`);
         this.props.history.push('/bags');
-        createFlashMessage(`Welcome back ${decodeToken().username}`);
       })
       .catch((error) => {
         createFlashMessage(error.response.data.message, 'danger');
