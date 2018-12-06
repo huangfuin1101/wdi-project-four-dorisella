@@ -20,8 +20,9 @@ function loginRoute(req, res, next) {
       if (user && user.validatePassword(req.body.password)) {
         const token = jwt.sign({
           username: user.username,
-          sub: user._id
-        }, secret, { expiresIn: '24h'});
+          sub: user._id,
+          check: user.admin
+        }, secret, { expiresIn: '5h'});
         res.json({
           messgae: ` Hello again ${user.username}`,
           token: token

@@ -7,7 +7,7 @@ function indexRoute(req, res, next) {
 }
 
 
-function createRoute(req, res, next) {
+function createBasket(req, res, next) {
   console.log('req.body',req.body);
   console.log('req.tokenUserId is', req.tokenUserId);
   if(Array.isArray(req.body)) {
@@ -25,7 +25,7 @@ function createRoute(req, res, next) {
     .catch(next);
 }
 
-function userIndexRoute(req, res, next) {
+function IndexPurchase(req, res, next) {
   Purchase.find({ user: req.tokenId })
     .populate('bag')
     .then(purchases => res.json(purchases))
@@ -36,6 +36,6 @@ function userIndexRoute(req, res, next) {
 
 module.exports = {
   indexRoute: indexRoute,
-  createRoute: createRoute,
-  userIndexRoute: userIndexRoute
+  createBasket: createBasket,
+  IndexPurchase: IndexPurchase
 };

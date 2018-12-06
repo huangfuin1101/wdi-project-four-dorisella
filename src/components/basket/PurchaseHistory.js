@@ -5,7 +5,7 @@ import { getToken } from '../../lib/auth';
 
 class PurchaseHistory extends React.Component {
   constructor(props) {
-    console.log('this is');
+    console.log('this is purchase history');
     super(props);
     this.state = {};
   }
@@ -15,16 +15,18 @@ class PurchaseHistory extends React.Component {
     console.log(token);
     axios.get('/api/purchases')
       .then(result => this.setState({ purchases: result.data }));
+
   }
   render() {
     console.log(this.state.purchases);
+    // const purchases = this.state.purchases;
     return(
       <main>
-
         {
           this.state.purchases && this.state.purchases.map(purchase =>
             <div key={purchase._id} style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <p>{purchase.name}</p>
+              {/* <p>{purchase.name}</p> */}
+              <p>{purchase.bag.name}</p>
               <p>Per unit £{purchase.price}</p>
               <p>{purchase.quantity}</p>
               <p>Total £{purchase.totalPrice}</p>
@@ -32,7 +34,6 @@ class PurchaseHistory extends React.Component {
             </div>
           )
         }
-    
       </main>
     );
   }

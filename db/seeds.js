@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const { dbURI } = require('../config/environment');
 const Bag = require('../models/bag');
 const User = require('../models/user');
+const Purchase = require('../models/purchase');
+
+
 
 const userData = [{
   username: 'doris',
@@ -68,6 +71,7 @@ const bagData =[
 
 Bag.collection.drop();
 User.collection.drop();
+Purchase.collection.drop();
 
 Bag.create(bagData)
   .then(bags => {
@@ -76,6 +80,11 @@ Bag.create(bagData)
       .create(userData)
       .then(users => {
         console.log(`${users.length} users have been created`);
+        // Purchase
+        //   .create(purchaseData)
+        //   .then(purchase => {
+        //     console.log(`${purchase.length} purchases have been created`);
+        //   });
         mongoose.connection.close();
       });
   });

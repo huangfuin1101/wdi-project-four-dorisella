@@ -21,7 +21,7 @@ export function getItem(basket, itemId) {
 export function addItem(itemToAdd, quantity) {
   console.log('this is Q', quantity);
   const basket = getBasket();
-  itemToAdd.wonder = itemToAdd._id;
+  itemToAdd.bag = itemToAdd._id;
   if (!getItem(basket, itemToAdd._id))
     basket.push(itemToAdd);
   incrementQuantity(basket, itemToAdd._id, quantity);

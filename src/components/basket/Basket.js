@@ -35,7 +35,7 @@ class Basket extends React.Component {
   }
 
   render() {
-    console.log(this.state.basket);
+    console.log('this is basket', this.state.basket);
     const basket = this.state.basket;
     const hasItems = basket && !!basket.length;
 
