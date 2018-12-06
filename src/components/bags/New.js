@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { getToken } from '../../lib/auth';
 
 
 class BagNew extends React.Component {
@@ -12,7 +13,8 @@ class BagNew extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log('form subbmitted', this.state);
-    axios.post('/api/bags', this.state)
+    axios.post('/api/bags', this.state,{headers: {
+      Authorization: `Bearer ${getToken()}`}})
       .then(result => {
         console.log('this is result', result);
         this.props.history.push(`/bags/${result.data._id}`);

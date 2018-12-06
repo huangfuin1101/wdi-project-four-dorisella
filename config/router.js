@@ -20,7 +20,8 @@ router.post('/register', authCtrl.registerRoute);
 router.post('/login', authCtrl.loginRoute);
 
 router.post('/checkout', purchasesCtrl.createBasket);
-router.get('/purchases', purchasesCtrl.IndexPurchase);
+router.get('/purchases', purchasesCtrl.indexPurchase);
+router.get('/allpurchases', adminRoute, purchasesCtrl.allPurchase);
 
 
 module.exports = router;

@@ -12,6 +12,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Basket from './components/basket/Basket';
 import Purchase from './components/basket/PurchaseHistory';
+import AllPurchases from './components/basket/AllPurchases';
 
 
 import 'bulma';
@@ -34,6 +35,7 @@ class App extends React.Component {
                 <Route exact path="/bags/new" component={BagNew} />
                 <Route exact path="/basket" component={Basket} />
                 <Route exact path="/purchases" component={Purchase} />
+                <Route exact path="/allpurchases" component={AllPurchases} />
                 <Route path="/bags/:id/edit" component={BagEdit} />
                 <Route path="/bags/:id" component={BagShow} />
               </Switch>

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import BagShowSection from './BagShowSection';
 import { addItem } from '../../lib/basket';
 import { isAdmin } from '../../lib/auth';
+import { getToken } from '../../lib/auth';
 
 
 
@@ -26,7 +27,9 @@ export default class BagShow extends React.Component {
   }
   handleDelete(event){
     event.preventDefault();
-    axios.delete(`/api/bags/${this.state.bag._id}`)
+    axios.delete(`/api/bags/${this.state.bag._id}`, {headers: {
+      Authorization: `Bearer ${getToken()}`
+    }})
       .then( () => this.props.history.push('/bags'));
   }
 

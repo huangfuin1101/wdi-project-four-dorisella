@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { getToken } from '../../lib/auth';
 
 
 class BagUpdate extends React.Component{
@@ -22,7 +23,8 @@ class BagUpdate extends React.Component{
   handleSubmit(event) {
     console.log('form subbmitted', this.state);
     event.preventDefault();
-    axios.put(`/api/bags/${this.props.match.params.id}`, this.state.bag)
+    axios.put(`/api/bags/${this.props.match.params.id}`, this.state.bag, {headers: {
+      Authorization: `Bearer ${getToken()}`}})
       .then(result => {
         console.log(result);
         this.props.history.push(`/bags/${this.props.match.params.id}`);
@@ -65,7 +67,7 @@ class BagUpdate extends React.Component{
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value={this.state.bag.price || ''}  name="price"  placeholder="price"/>
+                        <input className="input" onChange={this.handleChange}   value= {this.state.bag.price || ''}  name="price"  placeholder="price"/>
                       </div>
                     </div>
                     <div className="field">

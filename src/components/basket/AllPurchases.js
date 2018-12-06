@@ -3,7 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { getToken } from '../../lib/auth';
 
-class PurchaseHistory extends React.Component {
+class AllPurchases extends React.Component {
   constructor(props) {
     console.log('this is purchase history');
     super(props);
@@ -13,7 +13,7 @@ class PurchaseHistory extends React.Component {
   componentDidMount() {
     const token = getToken();
     console.log(token);
-    axios.get('/api/purchases')
+    axios.get('/api/allpurchases')
       .then(result => this.setState({ purchases: result.data }));
 
   }
@@ -22,7 +22,7 @@ class PurchaseHistory extends React.Component {
     // const purchases = this.state.purchases;
     return(
       <main>
-        <h2 className='title is-2 has-text-centered'>Order History</h2>
+        <h2 className='title is-2 has-text-centered'>All History</h2>
         <hr />
         {
           this.state.purchases && this.state.purchases.map(purchase =>
@@ -56,4 +56,4 @@ class PurchaseHistory extends React.Component {
   }
 }
 
-export default PurchaseHistory;
+export default AllPurchases;

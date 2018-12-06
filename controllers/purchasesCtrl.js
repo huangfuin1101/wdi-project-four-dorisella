@@ -1,11 +1,10 @@
 const Purchase = require('../models/purchase');
 
-function indexRoute(req, res, next) {
+function allPurchase(req, res, next) {
   Purchase.find()
     .then(purchases => res.json(purchases))
     .catch(next);
 }
-
 
 function createBasket(req, res, next) {
   console.log('req.body',req.body);
@@ -25,17 +24,15 @@ function createBasket(req, res, next) {
     .catch(next);
 }
 
-function IndexPurchase(req, res, next) {
+function indexPurchase(req, res, next) {
   Purchase.find({ user: req.tokenId })
     .populate('bag')
     .then(purchases => res.json(purchases))
     .catch(next);
 }
 
-
-
 module.exports = {
-  indexRoute: indexRoute,
+  allPurchase: allPurchase,
   createBasket: createBasket,
-  IndexPurchase: IndexPurchase
+  indexPurchase: indexPurchase
 };
