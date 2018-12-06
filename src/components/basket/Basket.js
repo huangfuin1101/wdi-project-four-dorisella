@@ -41,7 +41,8 @@ class Basket extends React.Component {
 
     return (
       <main>
-        <h1>Items in your basket</h1>
+        <h2 className='title is-2 has-text-centered'>Items in your basket</h2>
+        <hr />
         {basket && hasItems ? basket.map(item =>
           <div key={item._id} className="columns">
             <div className="column is-3">
@@ -67,13 +68,13 @@ class Basket extends React.Component {
         {basket && hasItems &&
           <section className="columns">
             <div className="column">
-              <button className="button is-warning" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
+              <button className="button is-light" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
             </div>
             <div className="column">
               <p className="column">Total price: £ {basketLib.totalBasketPrice()}</p>
             </div>
             <div className="column">
-              <button className="button is-link" onClick={this.checkout}>Check out</button>
+              <button className="button is-dark" onClick={this.checkout}>Check out</button>
             </div>
           </section>
         }
