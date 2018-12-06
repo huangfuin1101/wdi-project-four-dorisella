@@ -22,7 +22,7 @@ class BagUpdate extends React.Component{
   handleSubmit(event) {
     console.log('form subbmitted', this.state);
     event.preventDefault();
-    axios.put(`/api/bags/${this.props.match.params.id}`, this.state.wondersworld)
+    axios.put(`/api/bags/${this.props.match.params.id}`, this.state.bag)
       .then(result => {
         console.log(result);
         this.props.history.push(`/bags/${this.props.match.params.id}`);
