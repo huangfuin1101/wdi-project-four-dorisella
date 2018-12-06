@@ -33,7 +33,10 @@ export default class BagShow extends React.Component {
           <p>Please wait...</p>}
 
         <div>
+
+      
         </div>
+
       </section>
     );
   }

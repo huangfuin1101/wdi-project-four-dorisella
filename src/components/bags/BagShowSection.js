@@ -10,10 +10,11 @@ function BagShowSection({ bag }) {
       </figure>
       <div>
         <h3 className="subtitle is-4 has-text-centered">{bag.name}</h3>
+        <h6 className="subtitle is-6 has-text-centered">{bag.brand}</h6>
         <p className="has-text-centered">£ {bag.price}</p>
         <hr/>
-        <p className="subtitle is-6">{bag.description}</p>
-        <p className="subtitle is-6">{bag.detail}</p>
+        <p>{bag.description}</p>
+        <p>{bag.detail}</p>
       </div>
     </div>
   );
