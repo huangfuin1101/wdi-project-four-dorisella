@@ -1,0 +1,28 @@
+@import "components/header";
+#title{
+  animation:first 7s steps(20);
+  overflow:hidden;
+  white-space:nowrap;
+  width:21ch;
+}
+@keyframes first{
+  0% {
+    width:0ch;
+  }
+  @keyframes first{
+    0% {
+      width:21ch;
+    }
+  }
+}
+
+
+.home{
+  margin-top: 15vh;
+  #title{
+    font-size: 90px;
+     &:hover{
+        opacity: 0.2;
+    }
+  }
+}

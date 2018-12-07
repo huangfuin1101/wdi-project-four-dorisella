@@ -4,24 +4,24 @@ const authCtrl = require('../controllers/authCtrl');
 const purchasesCtrl = require('../controllers/purchasesCtrl');
 // const secureRoute = require('../lib/secureRoute');
 const adminRoute = require('../lib/adminRoute');
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 
 
 router.route('/bags')
-  .get( bagCtrl.indexRoute)
-  .post(adminRoute, bagCtrl.createRoute);
+  .get( bagCtrl.index)
+  .post(adminRoute, bagCtrl.create);
 
 router.route('/bags/:id')
-  .get(bagCtrl.showRoute)
-  .put(adminRoute, bagCtrl.updateRoute )
-  .delete(adminRoute, bagCtrl.deleteRoute);
+  .get(bagCtrl.show)
+  .put(adminRoute, bagCtrl.update)
+  .delete(adminRoute, bagCtrl.delete);
 
 
-router.post('/register', authCtrl.registerRoute);
-router.post('/login', authCtrl.loginRoute);
+router.post('/register', authCtrl.register);
+router.post('/login', authCtrl.login);
 
 router.post('/checkout', purchasesCtrl.createPurchase);
-router.get('/purchases', secureRoute, purchasesCtrl.indexPurchase);
+router.get('/purchases', purchasesCtrl.indexPurchase);
 router.get('/allpurchases', adminRoute, purchasesCtrl.allPurchase);
 
 

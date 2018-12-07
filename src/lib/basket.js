@@ -47,13 +47,14 @@ export function removeItem(itemId) {
 }
 
 export function totalBasketPrice() {
+  console.log('basket', getBasket()[0]);
   const basket = getBasket();
   return basket.map(item => item.price * item.quantity)
     .reduce((total, itemTotal) => total += itemTotal, 0);
 
 }
 
-export function basketAmunt() {
+export function basketAmount() {
   return getBasket().length;
 }
 
@@ -69,5 +70,5 @@ export function checkout() {
 export default {
   createBasket, getBasket, writeBasket, getItem, addItem,
   incrementQuantity, updateQuantity, removeItem, totalBasketPrice,
-  checkout
+  checkout, basketAmount
 };

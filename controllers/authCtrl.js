@@ -44,6 +44,6 @@ function loginRoute(req, res, next) {
 
 
 module.exports = {
-  loginRoute: loginRoute,
-  registerRoute: registerRoute
+  login: loginRoute,
+  register: registerRoute
 };

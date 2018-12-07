@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuthenticated, deleteToken, decodeToken, isAdmin } from '../lib/auth';
+import { basketAmount } from '../lib/basket';
 import { createFlashMessage } from '../lib/flash';
 
 
@@ -23,17 +24,18 @@ class Header extends React.Component {
     const username = decodeToken().username;
 
     return (
-      <nav className="navbar is-fixed-bottom is-dark">
+      <nav className="navbar is-fixed-bottom has-text-black">
         <div className="navbar-menu is-active">
-          <div className="navbar-start">
-            { pathname !== '/' && <Link className="navbar-item" to='/'>HOME</Link>}
-            <Link className="navbar-item" to='/bags'> COLLECTION</Link>
-            { isAdmin() && <Link className="navbar-item" to='/bags/new'> ADD AN ITEM</Link>}
-            {!isAuthenticated() && <Link className="navbar-item" to='/login'> LOGIN</Link>}
-            {!isAuthenticated() && <Link className="navbar-item" to='/register'> REGISTER</Link>}
-            {isAuthenticated() && <a className="navbar-item" onClick={this.handleLogout}>LOGOUT { username.toUpperCase() }</a>}
-            {isAuthenticated() && <Link className="navbar-item" to='/basket'> SHOPPING CART</Link>}
-            {isAuthenticated()&& <Link className="navbar-item" to='/purchases'>ORDER HISTORY</Link>}
+          <div className="navbar-start header">
+            { pathname !== '/' && <Link className="navbar-item bar" to='/'>HOME</Link>}
+            <Link className="navbar-item bar" to='/bags'> COLLECTION</Link>
+            { isAdmin() && <Link className="navbar-item bar" to='/bags/new'> ADD AN ITEM</Link>}
+            {!isAuthenticated()  && pathname !== '/login' && <Link className="navbar-item bar" to='/login'> LOGIN</Link>}
+            {!isAuthenticated() && pathname !== '/register' && <Link className="navbar-item bar" to='/register'> REGISTER</Link>}
+            {isAuthenticated() && pathname !== '/basket' && <Link className="navbar-item bar" to='/basket'> 🛒 { basketAmount()}</Link>}
+            {isAuthenticated() && <a className="navbar-item bar" onClick={this.handleLogout}>LOGOUT { username.toUpperCase() }</a>}
+            {isAuthenticated() && pathname !== '/basket' &&  <Link className="navbar-item bar" to='/basket'> SHOPPING CART</Link>}
+            {isAuthenticated() && pathname !== '/purchases'  && <Link className="navbar-item bar" to='/purchases'>ORDER HISTORY</Link>}
             {isAdmin()&& <Link className="navbar-item" to='/allpurchases'>ALL PURCHASES</Link>}
             {/* {isAuthenticated() && <p className="navbar-item">Welcome back! {decodeToken().username}</p>} */}
           </div>

@@ -1,32 +1,10 @@
-#title{
-  animation:first 7s steps(20);
-  overflow:hidden;
-  white-space:nowrap;
-  width:21ch;
-}
-@keyframes first{
-  0% {
-    width:0ch;
-  }
-  @keyframes first{
-    0% {
-      width:21ch;
-    }
-  }
-}
+@import "components/header";
+
 .index {
   height: 70vh;
   overflow: auto;
 }
-.home{
-  margin-top: 15vh;
-  #title{
-    font-size: 90px;
-     &:hover{
-        opacity: 0.2;
-    }
-  }
-}
+
 .pic {
   height: 70vh;
   overflow: auto;

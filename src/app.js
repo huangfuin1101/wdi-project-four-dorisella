@@ -16,7 +16,7 @@ import AllPurchases from './components/basket/AllPurchases';
 
 
 import 'bulma';
-import './scss/style.scss';
+import './scss/main.scss';
 
 class App extends React.Component {
   render() {
