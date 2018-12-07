@@ -6,14 +6,11 @@ function allPurchase(req, res, next) {
     .catch(next);
 }
 
-function createBasket(req, res, next) {
-  console.log('req.body',req.body);
-  console.log('req.tokenUserId is', req.tokenUserId);
+function createPurchase(req, res, next) {
   if(Array.isArray(req.body)) {
     req.body.forEach(purchase => {
       purchase.user = req.tokenUserId;
       purchase._id = null;
-      console.log('purchase._id ', purchase._id);
     });
   } else {
     req.body.user = req.tokenUserId;
@@ -24,15 +21,31 @@ function createBasket(req, res, next) {
     .catch(next);
 }
 
+function updateRoute(req, res, next) {
+  console.log('this is req.params.id',req.body);
+  Purchase
+    .findById(req.params.id)
+    .then(bag => {
+      bag.set(req.body);
+      return bag.save();
+    })
+    .then(bag => res.json(bag))
+    .catch(next);
+}
+
+
 function indexPurchase(req, res, next) {
-  Purchase.find({ user: req.tokenId })
+  console.log('token id is', req.tokenUserId);
+  Purchase.find({ user: req.tokenUserId })
     .populate('bag')
     .then(purchases => res.json(purchases))
     .catch(next);
 }
 
+
 module.exports = {
   allPurchase: allPurchase,
-  createBasket: createBasket,
-  indexPurchase: indexPurchase
+  createPurchase: createPurchase,
+  indexPurchase: indexPurchase,
+  updateRoute: updateRoute
 };

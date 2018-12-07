@@ -19,7 +19,7 @@ export function getItem(basket, itemId) {
 }
 
 export function addItem(itemToAdd, quantity) {
-  console.log('this is Q', quantity);
+  console.log('this is Q id', itemToAdd._id);
   const basket = getBasket();
   itemToAdd.bag = itemToAdd._id;
   if (!getItem(basket, itemToAdd._id))
@@ -52,6 +52,11 @@ export function totalBasketPrice() {
     .reduce((total, itemTotal) => total += itemTotal, 0);
 
 }
+
+export function basketAmunt() {
+  return getBasket().length;
+}
+
 
 export function checkout() {
   axios.post('/api/checkout', getBasket())

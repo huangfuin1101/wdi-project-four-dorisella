@@ -13,7 +13,8 @@ class PurchaseHistory extends React.Component {
   componentDidMount() {
     const token = getToken();
     console.log(token);
-    axios.get('/api/purchases')
+    axios.get('/api/purchases', {headers: {
+      Authorization: `Bearer ${getToken()}`}})
       .then(result => this.setState({ purchases: result.data }));
 
   }

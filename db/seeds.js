@@ -6,12 +6,51 @@ const Purchase = require('../models/purchase');
 
 
 
+const bagIds = [
+  '5be9860fcb16d525543cebb2',
+  '5be9860fcb16d525543ceda9',
+  '5be9860fcb16d525543ceda3',
+  '5be9860fcb16d525543ceda4',
+  '5be9860fcb16d525543cedc6'
+];
+
+const userIds = [
+  '5be9860fcb16d525543cefa0',
+  '5be9860fcb16d525543ceba2'
+];
+
+const purchaseIds = [
+  '5be9860fcb16d525543cede4',
+  '5be9860fcb16d525543beba9'
+];
+//
+//
+const purchaseData = [
+  {
+    _id: purchaseIds[0],
+    bag: bagIds[0],
+    quantity: 1,
+    user: userIds[0],
+    price: 1600,
+    status: 'paid'
+  }, {
+    _id: purchaseIds[1],
+    bag: bagIds[1],
+    quantity: 2,
+    user: userIds[0],
+    price: 1850,
+    status: 'paid'
+  }
+];
+
 const userData = [{
+  _id: userIds[0],
   username: 'doris',
   email: 'd@d',
   password: 'pass',
   admin: true
 },{
+  _id: userIds[1],
   username: 'cua',
   email: 'c@c',
   password: 'pass'
@@ -21,6 +60,7 @@ mongoose.connect(dbURI);
 
 const bagData =[
   {
+    _id: bagIds[0],
     name: 'MINI BELT BAG IN GRAINED CALFSKIN',
     brand: 'CELINE',
     // image: '../images.bag.jpg',
@@ -31,16 +71,17 @@ const bagData =[
     stock: 2
   },
   {
+    _id: bagIds[1],
     name: 'MALL BIG BAG WITH LONG STRAP IN SUPPLE GRAINED CALFSKIN',
     brand: 'CELINE',
     image: 'https://www.celine.com/dw/image/v2/BBST_PRD/on/demandware.static/-/Sites-masterCatalog/default/dw84c2988c/images/large/183313A4U.38NO_1_LIBRARY_81246.jpg?sw=1156&sh=1600&sm=fit&strip=false',
     detail: '9 X 10 X 9 IN (24 X 26 X 22 CM)  100% CLFSKIN SILVER METAL HARDWARE  100% CALFSKIN LINING  FUNCTIONAL LEATHER BELT TO TIGHTEN THE BAG AND INNER',
-
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
     price: 1850,
     stock: 3
   },
   {
+    _id: bagIds[2],
     name: 'BLACK MINI BUCKET BAG',
     brand: 'MANSUR GAVRIEL',
     image: 'https://cdn.shopify.com/s/files/1/0352/7949/products/Mini_Bucket_Bag_Vegetable_Tanned_Black_Flamma_Detail_1_01fec1fe-13d1-4d02-bd37-a4ea3a72e53c_1920x.jpg?v=1527312576',
@@ -50,6 +91,7 @@ const bagData =[
     stock: 5
   },
   {
+    _id: bagIds[3],
     name: 'BLACK SMALL TOTE',
     brand: 'MANSUR GAVRIEL',
     image: 'https://cdn.shopify.com/s/files/1/0352/7949/products/Small_Tote_Vegetable_Tanned_Black_Flamma_detail_1_6207c049-7636-43b8-be67-ccf655c57b9f_1440x.jpg?v=1530940974',
@@ -59,6 +101,7 @@ const bagData =[
     stock: 1
   },
   {
+    _id: bagIds[4],
     name: 'SMALL CLASSIC HANDBAG',
     brand: 'CHANEL',
     image: 'https://www.chanel.com/images/u_sample,w_5000,h_1,g_south,b_white/e_trim:0/c_crop,w_iw,h_ih/u_sample,w_5000,h_1,g_north,b_white/e_trim:0/c_crop,w_iw,h_ih/c_pad,w_iw,h_ih/e_trim:0/q_auto,f_auto,fl_lossy,dpr_auto/w_1096/small-classic-handbag-navy-blue-lambskin-gold-tone-metal-lambskin-gold-tone-metal-packshot-default-a01113y255395b313-8805002969118.jpg',
@@ -80,11 +123,11 @@ Bag.create(bagData)
       .create(userData)
       .then(users => {
         console.log(`${users.length} users have been created`);
-        // Purchase
-        //   .create(purchaseData)
-        //   .then(purchase => {
-        //     console.log(`${purchase.length} purchases have been created`);
-        //   });
-        mongoose.connection.close();
+        Purchase
+          .create(purchaseData)
+          .then(purchase => {
+            console.log(`${purchase.length} purchases have been created`);
+            mongoose.connection.close();
+          });
       });
   });
