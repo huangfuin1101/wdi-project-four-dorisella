@@ -1,5 +1,3 @@
-@import "components/header";
-
 #title{
   animation:first 7s steps(20);
   overflow:hidden;
@@ -20,6 +18,10 @@
 #homepic{
   width:100%;
   margin-left: 100px;
+  animation:first 3s steps(12);
+  overflow:hidden;
+  white-space:nowrap;
+  // width:21ch;
 }
 .home{
   margin-top: 15vh;
@@ -28,5 +30,10 @@
      &:hover{
         opacity: 0.2;
     }
+  }
+}
+@keyframes first{
+  0% {
+    width:60%;
   }
 }
