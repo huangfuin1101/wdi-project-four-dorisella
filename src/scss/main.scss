@@ -1,14 +1,15 @@
 @import "components/header";
+@import "pages/home";
 
 .index {
   height: 70vh;
   overflow: auto;
 }
 
-.pic {
-  height: 70vh;
-  overflow: auto;
-}
+// .pic {
+//   height: 70vh;
+//   overflow: auto;
+// }
 
 img:hover{
     opacity: 0.2;

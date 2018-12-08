@@ -1,4 +1,5 @@
 @import "components/header";
+
 #title{
   animation:first 7s steps(20);
   overflow:hidden;
@@ -16,7 +17,10 @@
   }
 }
 
-
+#homepic{
+  width:100%;
+  margin-left: 100px;
+}
 .home{
   margin-top: 15vh;
   #title{

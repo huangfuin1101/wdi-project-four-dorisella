@@ -27,7 +27,7 @@ class Header extends React.Component {
       <nav className="navbar is-fixed-bottom has-text-black">
         <div className="navbar-menu is-active">
           <div className="navbar-start header">
-            { pathname !== '/' && <Link className="navbar-item bar" to='/'>HOME</Link>}
+            <Link id="home"className="navbar-item" to='/'>DORISELLA</Link>
             <Link className="navbar-item bar" to='/bags'> COLLECTION</Link>
             { isAdmin() && <Link className="navbar-item bar" to='/bags/new'> ADD AN ITEM</Link>}
             {!isAuthenticated()  && pathname !== '/login' && <Link className="navbar-item bar" to='/login'> LOGIN</Link>}
