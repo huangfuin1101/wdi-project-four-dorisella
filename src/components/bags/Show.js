@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BagShowSection from './BagShowSection';
 import { addItem } from '../../lib/basket';
-import { isAdmin } from '../../lib/auth';
+import { isAdmin, isAuthenticated } from '../../lib/auth';
 import { getToken } from '../../lib/auth';
 
 
@@ -55,7 +55,7 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
-        <div className="columns">
+        { isAuthenticated() && <div className="columns">
           <div className="field column is-8">
             <label htmlFor="quantity" className="label">Quantity</label>
             <input className="input" type="number" max='10' min='1' name="quantity"
@@ -64,7 +64,7 @@ export default class BagShow extends React.Component {
           <div className="column is-5 is-offset-1">
             <button className="button" onClick={this.handleClick}>Add to basket</button>
           </div>
-        </div>
+        </div>}
         <div>
           { isAdmin() && <button className="button is-dark has-text-centered deletebtn" onClick={this.handleDelete} >Delete</button>}
           { isAdmin() &&  <Link to={`/bags/${this.props.match.params.id}/edit`}>

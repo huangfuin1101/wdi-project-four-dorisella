@@ -24,7 +24,11 @@ export function isAuthenticated() {
 }
 
 export function isAdmin(){
-  if(decodeToken().check) {
-    return decodeToken();
-  }
+  return decodeToken().check;
 }
+
+// export function isAdmin(){
+//   if(decodeToken().check) {
+//     return decodeToken();
+//   }
+// }

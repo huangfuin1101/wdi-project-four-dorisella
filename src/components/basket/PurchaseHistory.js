@@ -35,11 +35,11 @@ class PurchaseHistory extends React.Component {
               </div>
               <div className="column is-2">
                 {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">PRICER</h5> */}
-                <p className="has-text-centered">£ {purchase.price}</p>
+                <p className="has-text-centered">£ {purchase.unitPrice}</p>
               </div>
               <div className="column is-2">
                 {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">QUANTITY</h5> */}
-                <p className="has-text-centered">{purchase.quantity}</p>
+                <p className="has-text-centered">{purchase.unitQuantity}</p>
               </div>
               <div className="column is-2">
                 {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">SUBTOTAL</h5> */}

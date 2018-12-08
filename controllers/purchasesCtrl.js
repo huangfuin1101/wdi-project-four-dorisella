@@ -2,6 +2,7 @@ const Purchase = require('../models/purchase');
 
 function allPurchase(req, res, next) {
   Purchase.find()
+    .populate('user')
     .then(purchases => res.json(purchases))
     .catch(next);
 }

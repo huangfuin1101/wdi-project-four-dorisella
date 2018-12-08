@@ -1,5 +1,5 @@
 import axios from 'axios';
-// import { getToken } from './auth';
+import { getToken } from './auth';
 
 export function createBasket() {
   localStorage.setItem('basket', '[]');
@@ -10,7 +10,7 @@ export function getBasket() {
   return JSON.parse(localStorage.getItem('basket')) || createBasket();
 }
 
-export function writeBasket(basket) {
+export function saveBasket(basket) {
   localStorage.setItem('basket', JSON.stringify(basket));
 }
 
@@ -19,39 +19,48 @@ export function getItem(basket, itemId) {
 }
 
 export function addItem(itemToAdd, quantity) {
-  console.log('this is Q id', itemToAdd._id);
+  console.log('this is Q id', itemToAdd);
   const basket = getBasket();
   itemToAdd.bag = itemToAdd._id;
   if (!getItem(basket, itemToAdd._id))
     basket.push(itemToAdd);
   incrementQuantity(basket, itemToAdd._id, quantity);
-  writeBasket(basket);
+  saveBasket(basket);
 }
 
 export function incrementQuantity(basket, itemId, quantity) {
   const item = getItem(basket, itemId);
-  item.quantity = (item.quantity || 0) + quantity;
+  item.unitQuantity =(item.unitQuantity || 0) + Math.abs(quantity);
+  saveBasket(basket);
+  console.log('item',basket);
 }
 
-export function updateQuantity(itemId, updatedQuantity) {
-  const basket = getBasket();
-  getItem(basket, itemId).quantity = updatedQuantity;
-  writeBasket(basket);
+export function decrementQuantity(basket, itemId, quantity) {
+  const item = getItem(basket, itemId);
+  if(item.unitQuantity > 0)
+    item.unitQuantity = item.unitQuantity - quantity;
+  saveBasket(basket);
 }
+
+// export function updateQuantity(itemId, updatedQuantity) {
+//   const basket = getBasket();
+//   getItem(basket, itemId).quantity = updatedQuantity;
+//   saveBasket(basket);
+//   console.log('update',basket);
+// }
 
 export function removeItem(itemId) {
   const basket = getBasket();
   const item = getItem(basket, itemId);
   basket.splice(basket.indexOf(item), 1);
-  writeBasket(basket);
+  saveBasket(basket);
+  console.log('remove', basket);
 }
 
 export function totalBasketPrice() {
-  console.log('basket', getBasket()[0]);
   const basket = getBasket();
-  return basket.map(item => item.price * item.quantity)
-    .reduce((total, itemTotal) => total += itemTotal, 0);
-
+  const itemTotals = basket.map(item => item.unitPrice * item.unitQuantity);
+  return itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0);
 }
 
 export function basketAmount() {
@@ -60,7 +69,8 @@ export function basketAmount() {
 
 
 export function checkout() {
-  axios.post('/api/checkout', getBasket())
+  axios.post('/api/checkout', getBasket(), {headers: {
+    Authorization: `Bearer ${getToken()}`}})
     .then(() => {
       createBasket();
       this.props.history.push('/purchases');
@@ -68,7 +78,7 @@ export function checkout() {
 }
 
 export default {
-  createBasket, getBasket, writeBasket, getItem, addItem,
-  incrementQuantity, updateQuantity, removeItem, totalBasketPrice,
-  checkout, basketAmount
+  createBasket, getBasket, saveBasket, getItem, addItem,
+  incrementQuantity, removeItem, totalBasketPrice,
+  checkout, basketAmount, decrementQuantity
 };

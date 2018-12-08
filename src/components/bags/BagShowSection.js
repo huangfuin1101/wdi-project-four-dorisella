@@ -9,7 +9,7 @@ function BagShowSection({ bag }) {
       <div>
         <h3 className="subtitle is-4 has-text-centered">{bag.name}</h3>
         <h6 className="subtitle is-6 has-text-centered">{bag.brand}</h6>
-        <p className="has-text-centered">£ {bag.price}</p>
+        <p className="has-text-centered">£ {bag.unitPrice}</p>
         <hr/>
         <p>{bag.description}</p>
         <p>{bag.detail}</p>

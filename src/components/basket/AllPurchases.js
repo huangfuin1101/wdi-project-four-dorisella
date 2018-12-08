@@ -13,7 +13,8 @@ class AllPurchases extends React.Component {
   componentDidMount() {
     const token = getToken();
     console.log(token);
-    axios.get('/api/allpurchases')
+    axios.get('/api/allpurchases', {headers: {
+      Authorization: `Bearer ${getToken()}`}})
       .then(result => this.setState({ purchases: result.data }));
 
   }
@@ -27,18 +28,22 @@ class AllPurchases extends React.Component {
         {
           this.state.purchases && this.state.purchases.map(purchase =>
             <div key={purchase._id} className="columns">
-              {/* <p>{purchase.name}</p> */}
+              <p>{purchase.name}</p>
+              {/* <div className="column is-3"> */}
+                {/* <h5 className="subtitle is-5 has-text-centered has-text-weight-bold">ITEM</h5> */}
+                {/* <p className="has-text-centered">{purchase.user.username}</p> */}
+              {/* </div> */}
               <div className="column is-3">
                 {/* <h5 className="subtitle is-5 has-text-centered has-text-weight-bold">ITEM</h5> */}
                 <p className="has-text-centered">{purchase.bag.name}</p>
               </div>
               <div className="column is-2">
                 {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">PRICER</h5> */}
-                <p className="has-text-centered">£ {purchase.price}</p>
+                <p className="has-text-centered">£ {purchase.unitPrice}</p>
               </div>
               <div className="column is-2">
                 {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">QUANTITY</h5> */}
-                <p className="has-text-centered">{purchase.quantity}</p>
+                <p className="has-text-centered">{purchase.unitQuantity}</p>
               </div>
               <div className="column is-2">
                 {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">SUBTOTAL</h5> */}

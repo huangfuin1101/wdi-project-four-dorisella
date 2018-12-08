@@ -58,7 +58,7 @@ class BagNew extends React.Component {
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value={this.state.price || ''}  name="price"  placeholder="price"/>
+                        <input className="input" onChange={this.handleChange}   value={this.state.unitPrice || ''}  name="unitPrice"  placeholder="unitPrice"/>
                       </div>
                     </div>
                     <div className="field">

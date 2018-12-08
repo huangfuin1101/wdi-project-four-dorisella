@@ -11,7 +11,7 @@ function BagBox ({ bag }){
         </figure>
         <p className="has-text-centered">{ bag.name }</p>
         <p className="has-text-centered">{ bag.brand }</p>
-        <p className="has-text-centered">£ { bag.price }</p>
+        <p className="has-text-centered">£ { bag.unitPrice }</p>
       </Link>
     </div>
   );
