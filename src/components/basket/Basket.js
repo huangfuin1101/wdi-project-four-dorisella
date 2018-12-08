@@ -118,8 +118,6 @@ class Basket extends React.Component {
     this.checkout = basketLib.checkout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = handleChange.bind(this);
-    // this.handleEditSubmit = this.handleEditSubmit.bind(this);
-    // this.handleQuantityDoubleClick = this.handleQuantityDoubleClick.bind(this);
     this.handleDecreasesClick = this.handleDecreaseClick.bind(this);
     this.handleIncreaseClick = this.handleIncreaseClick.bind(this);
   }
@@ -175,23 +173,25 @@ class Basket extends React.Component {
                     <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
                   </div>
                 </div>
+
               ) : <p>No items</p>}
+              <hr />
               {basket && hasItems &&
-                <section className="columns">
+                <div className="columns">
                   <div className="column">
                     <p className="column is-offset-6">Total price: £ {basketLib.totalBasketPrice()}</p>
                   </div>
-                </section>
+                </div>
               }
               <div className="columns">
                 <div className="column is-4">
                   <Link to={'/bags'}>
-                    <button className="button is-dark" >Continue Shopping</button>
+                    <button className="button continue" >Continue Shopping</button>
                   </Link>
                 </div>
                 <div className="column is-8">
-                  <button className="button is-dark is-offset-4" onClick={this.checkout}>Check out</button>
-                  <button className="button is-light is-offset-2" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
+                  <button className="button is-dark is-offset-4 checkout" onClick={this.checkout}>Check out</button>
+                  <button className="button is-light is-offset-2 clear" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
                 </div>
               </div>
             </div>

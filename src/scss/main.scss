@@ -1,4 +1,6 @@
 @import "components/header";
+@import "components/flash";
+@import "components/button";
 @import "pages/home";
 
 .index {
@@ -13,36 +15,4 @@
 
 .index-img:hover{
     opacity: 0.2;
-}
-.deletebtn{
-  margin-left: 20vw;
-}
-
-.edit{
-  margin-left: 31vw;
-}
-
-
-.flash-container {
-  position: relative;
-  width: 30%;
-  margin-left:35vw;
-  // margin: 0 auto;
-  .notification {
-    background-color: grey;
-    position: absolute;
-    animation: slidein 0.5s linear;
-    z-index: 2;
-    // margin: 0 auto;
-  }
-}
-
-
-@keyframes slidein {
-  from {
-    top: -300px;
-  }
-  to {
-    top: 0;
-  }
 }

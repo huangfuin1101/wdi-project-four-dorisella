@@ -31,7 +31,7 @@ class BagNew extends React.Component {
       <section className="hero is-light is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <div className="columns">
+            <div className="columns is-mobile">
               <div className="column is-6 is-offset-3 is-mobile">
                 <h3 className="title has-text-grey">Add an item</h3>
                 <div className="box">
