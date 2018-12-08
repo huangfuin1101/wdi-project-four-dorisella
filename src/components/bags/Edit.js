@@ -21,12 +21,10 @@ class BagUpdate extends React.Component{
       });
   }
   handleSubmit(event) {
-    console.log('form subbmitted', this.state);
     event.preventDefault();
     axios.put(`/api/bags/${this.props.match.params.id}`, this.state.bag, {headers: {
       Authorization: `Bearer ${getToken()}`}})
-      .then(result => {
-        console.log(result);
+      .then(()=> {
         this.props.history.push(`/bags/${this.props.match.params.id}`);
       });
   }

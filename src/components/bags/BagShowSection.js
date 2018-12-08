@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 function BagShowSection({ bag }) {
   return (
     <div className="column is-6 is-offset-3 pic">

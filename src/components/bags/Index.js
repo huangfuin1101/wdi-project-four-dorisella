@@ -8,12 +8,10 @@ class Index extends React.Component{
     this.state = {};
   }
   componentDidMount() {
-    console.log('this is', 'mount');
     axios.get('/api/bags')
       .then(result => this.setState({ bags: result.data}));
   }
   render() {
-    console.log('this is', 'Mount');
     return (
       <div className="index">
         <div className="columns is-multiline is-mobile">

@@ -21,18 +21,6 @@ function createPurchase(req, res, next) {
     .catch(next);
 }
 
-// function updateRoute(req, res, next) {
-//   console.log('this is req.params.id',req.body);
-//   Purchase
-//     .findById(req.params.id)
-//     .then(bag => {
-//       bag.set(req.body);
-//       return bag.save();
-//     })
-//     .then(bag => res.json(bag))
-//     .catch(next);
-// }
-
 
 function indexPurchase(req, res, next) {
   console.log('token id is', req.tokenUserId);

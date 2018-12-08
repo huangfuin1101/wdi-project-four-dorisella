@@ -16,7 +16,6 @@ export function decodeToken() {
 }
 
 export function deleteToken() {
-  console.log('logout');
   localStorage.removeItem('bags-token');
 }
 

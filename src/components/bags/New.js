@@ -12,7 +12,6 @@ class BagNew extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log('form subbmitted', this.state);
     axios.post('/api/bags', this.state,{headers: {
       Authorization: `Bearer ${getToken()}`}})
       .then(result => {

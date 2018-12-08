@@ -1,6 +1,6 @@
 import React  from 'react';
 import axios from 'axios';
-// import { createFlashMessage } from '../../lib/flash';
+import { createFlashMessage } from '../../lib/flash';
 
 class Register extends React.Component {
   constructor(props) {
@@ -11,16 +11,14 @@ class Register extends React.Component {
   }
   handleSubmit(event){
     event.preventDefault();
-    console.log( 'register', this.state);
     axios.post('/api/register', this.state)
-      .then(result => {
-        console.log('register', result.data);
-        // createFlashMessage('Thank you for register!');
+      .then(() => {
+        createFlashMessage('Thank you for register!');
         this.props.history.push('/login');
+      })
+      .catch(() => {
+        createFlashMessage('email or passpord does\'s match');
       });
-    // .catch(() => {
-    //   createFlashMessage('email or passpord does\'s match');
-    // });
   }
   handleChange({ target: { name, value }}) {
     this.setState({ [name]: value });
