@@ -1,18 +1,15 @@
 @import "components/header";
 @import "components/flash";
 @import "components/button";
+@import "components/variable";
 @import "pages/home";
+@import "pages/index";
 
-.index {
-  height: 70vh;
-  overflow: auto;
-}
+
+
+
 
 .pic {
-  height: 70vh;
+  height: 90vh;
   overflow: auto;
-}
-
-.index-img:hover{
-    opacity: 0.2;
 }

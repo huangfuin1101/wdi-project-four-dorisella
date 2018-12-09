@@ -47,7 +47,7 @@ export default class BagShow extends React.Component {
   render() {
     const bag = this.state.bag;
     return (
-      <section className="section is-large">
+      <section className="section">
         {bag
           ?
           <div className="columns is-mobile">
@@ -55,25 +55,23 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
-          { isAuthenticated() && <div className="columns">
-            <div className="column is-3 is-offset-3">
-              {/* <label htmlFor="quantity" className="label">Quantity</label> */}
-              <input className="input" type="number" max='10' min='1' name="quantity"
-                value={this.state.quantity || 0} onChange={this.handleChange}/>
-              </div>
-              <div className="column is-6">
-                <button className="button is-dark" onClick={this.handleClick}>Add</button>
-              </div>
-            </div>}
-            <div className="columns is-mobile">
-            {/* <div className="column is-4 is-offset-3"> */}
-              { isAdmin() && <button className="button is-light has-text-centered deletebtn" onClick={this.handleDelete} >Delete</button>}
-
-              { isAdmin() &&  <Link to={`/bags/${this.props.match.params.id}/edit`}>
-              <button className="button is-dark has-text-centered edit">Edit</button>
-            </Link>}
+        { isAuthenticated() && <div className="columns">
+          <div className="column is-3 is-offset-3">
+            {/* <label htmlFor="quantity" className="label">Quantity</label> */}
+            <input className="input" type="number" max='10' min='1' name="quantity"
+              value={this.state.quantity || 0} onChange={this.handleChange}/>
+          </div>
+          <div className="column is-6">
+            <button className="button is-dark" onClick={this.handleClick}>Add</button>
+          </div>
+        </div>}
+        <div className="columns is-mobile is-12">
+          {/* <div className="column is-4 is-offset-3"> */}
+          { isAdmin() && <button className="button is-light has-text-centered deletebtn" onClick={this.handleDelete} >Delete</button>}
+          { isAdmin() &&  <Link to={`/bags/${this.props.match.params.id}/edit`}>
+            <button className="button is-dark has-text-centered edit">Edit</button>
+          </Link>}
         </div>
-
       </section>
 
     );

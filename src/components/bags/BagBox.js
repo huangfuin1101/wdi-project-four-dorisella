@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 function BagBox ({ bag }){
   console.log('this is bag._id', bag._id);
   return (
-    <div className="column is-4">
+    <div className="column is-4 columns is-12 is-mobile">
       <Link to={`/bags/${bag._id}`}>
         <figure className="image index-img">
           <img  src={ bag.image} />
         </figure>
-        <p className="has-text-centered">{ bag.name }</p>
-        <p className="has-text-centered">{ bag.brand }</p>
-        <p className="has-text-centered">£ { bag.unitPrice }</p>
+        <div className="column is-multiline">
+          <h6 className="bag-name">{ bag.name }</h6>
+          <p className="bag-brand">{ bag.brand }</p>
+          <p className="bag-price"> { bag.unitPrice } GBP</p>
+        </div>
       </Link>
     </div>
   );

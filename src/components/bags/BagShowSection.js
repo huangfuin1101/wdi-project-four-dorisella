@@ -2,7 +2,7 @@ import React from 'react';
 
 function BagShowSection({ bag }) {
   return (
-    <div className="column is-6 is-offset-3 pic">
+    <div className="column is-7-desktop is-offset-3-desktop  pic is-three-quarters-mobile">
       <figure className="image">
         <img  src={ bag.image } />
       </figure>

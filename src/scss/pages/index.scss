@@ -1,0 +1,27 @@
+.bag-name {
+  font-size: 16px;
+  color: black;
+  font-family: $index-font;
+  line-height: 2;
+}
+.bag-brand {
+  font-size: 13px;
+  // font-weight: bold;
+  color: black;
+  font-family: $index-font;
+}
+.bag-price {
+  font-size: 13px;
+  font-weight: bold;
+  color: black;
+  font-family: $index-font;
+}
+
+.index {
+  height: 70vh;
+  overflow: auto;
+}
+
+.index-img:hover{
+    opacity: 0.2;
+}
