@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { getToken } from './auth';
+import { createFlashMessage } from './flash';
 
 export function createBasket() {
   localStorage.setItem('basket', '[]');
@@ -74,7 +75,12 @@ export function checkout() {
     .then(() => {
       createBasket();
       this.props.history.push('/purchases');
+    })
+    .catch(() => {
+      console.log('test');
+      createFlashMessage('Insufficient Stock');
     });
+
 }
 
 export default {

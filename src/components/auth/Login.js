@@ -14,15 +14,15 @@ class Login extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     axios.post('/api/login', this.state)
-    .then(result => {
-      saveToken(result.data.token);
-      createFlashMessage(`Welcome back ${decodeToken().username.toUpperCase()}`);
-      this.props.history.push('/bags');
-    })
-    .catch((error) => {
-      createFlashMessage(error.response.data.message, 'danger');
-      this.props.history.replace('/login');
-    });
+      .then(result => {
+        saveToken(result.data.token);
+        createFlashMessage(`Welcome back ${decodeToken().username.toUpperCase()}`);
+        this.props.history.push('/bags');
+      })
+      .catch((error) => {
+        createFlashMessage(error.response.data.message, 'danger');
+        this.props.history.replace('/login');
+      });
   }
   handleChange({ target: { name, value }}) {
     this.setState({ [name]: value });

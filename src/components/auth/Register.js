@@ -12,13 +12,13 @@ class Register extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     axios.post('/api/register', this.state)
-    .then(() => {
-      createFlashMessage('Thank you for register!');
-      this.props.history.push('/login');
-    })
-    .catch(() => {
-      createFlashMessage('email or passpord does\'s match');
-    });
+      .then(() => {
+        createFlashMessage('Thank you for register!');
+        this.props.history.push('/login');
+      })
+      .catch(() => {
+        createFlashMessage('email or passpord does\'s match');
+      });
   }
   handleChange({ target: { name, value }}) {
     this.setState({ [name]: value });

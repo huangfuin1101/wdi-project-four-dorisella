@@ -6,13 +6,13 @@ function BagShowSection({ bag }) {
       <figure className="image">
         <img  src={ bag.image } />
       </figure>
-      <div>
-        <h3 className="subtitle is-4 has-text-centered">{bag.name}</h3>
-        <h6 className="subtitle is-6 has-text-centered">{bag.brand}</h6>
-        <p className="has-text-centered">£ {bag.unitPrice}</p>
+      <div className="column">
+        <p className="has-text-right name">{bag.name}</p>
+        <p className="has-text-right brand">{bag.brand}</p>
+        <p className="has-text-right price"> {bag.unitPrice} GBP</p>
         <hr/>
-        <p>{bag.description}</p>
-        <p>{bag.detail}</p>
+        <p className="has-text-left description">{bag.description}</p>
+        <p className="has-text-left detail">{bag.detail}</p>
       </div>
     </div>
   );

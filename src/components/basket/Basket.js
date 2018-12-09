@@ -3,6 +3,8 @@ import basketLib from '../../lib/basket';
 import { handleChange } from '../../lib/common';
 import { Link } from 'react-router-dom';
 
+
+
 class Basket extends React.Component {
   constructor(props) {
     super(props);
@@ -58,7 +60,7 @@ class Basket extends React.Component {
                         </figure>
                       </Link>
                     </div>
-                    <div className="column is-2">
+                    <div className="column is-2 has-text-left">
                       <p>{item.name}</p>
                     </div>
                     <div className="column is-3">

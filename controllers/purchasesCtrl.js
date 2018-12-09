@@ -17,6 +17,7 @@ function createPurchase(req, res, next) {
     req.body.user = req.tokenUserId;
     req.body._id = null;
   }
+
   Purchase.create(req.body)
     .then(purchase => res.json(purchase))
     .catch(next);
