@@ -43,59 +43,61 @@ class Basket extends React.Component {
 
     return (
       <main>
-        <section className="hero">
-          <h2 className='title is-2 has-text-left'>SHOPPING BASKET</h2>
-          <hr />
-          <div className="hero-body">
-            <div className="container has-text-centered">
-              {basket && hasItems ? basket.map(item =>
-                <div key={item._id} className="columns">
-                  <div className="column is-3">
-                    <Link to={`/bags/${item._id}`}>
-                      <figure className="image pics">
-                        <img  src={ item.image} />
-                      </figure>
+        <div className="section is-small">
+          <section className="hero">
+            <h2 className='title is-2 has-text-left'>SHOPPING BASKET</h2>
+            <hr />
+            <div className="hero-body">
+              <div className="container has-text-centered">
+                {basket && hasItems ? basket.map(item =>
+                  <div key={item._id} className="columns is-mobile">
+                    <div className="column is-3">
+                      <Link to={`/bags/${item._id}`}>
+                        <figure id="pics" className="image">
+                          <img  src={ item.image} />
+                        </figure>
+                      </Link>
+                    </div>
+                    <div className="column is-2">
+                      <p>{item.name}</p>
+                    </div>
+                    <div className="column is-3">
+                      <span onClick={() => this.handleDecreaseClick(item)}><strong> ＜ </strong></span>
+                      <span>{item.unitQuantity}</span>
+                      <span onClick={() => this.handleIncreaseClick(item)}> <strong>＞</strong></span>
+                    </div>
+                    <div className="column is-3">
+                      <p>£{item.unitPrice}</p>
+                    </div>
+                    <div className="column is-1">
+                      <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
+                    </div>
+                  </div>
+                ):
+                  <p>No items</p>}
+                <hr />
+                {basket && hasItems &&
+                  <div className="columns is-mobile">
+                    <div className="column">
+                      <p className="column is-offset-10">Total price: £ {basketLib.totalBasketPrice()}</p>
+                    </div>
+                  </div>
+                }
+                <div className="columns">
+                  <div className="column is-4">
+                    <Link to={'/bags'}>
+                      <button className="button continue" >Continue Shopping</button>
                     </Link>
                   </div>
-                  <div className="column is-2">
-                    <p>{item.name}</p>
+                  <div className="column is-8">
+                    <button className="button is-dark is-offset-4 checkout" onClick={this.checkout}>Check out</button>
+                    <button className="button is-light is-offset-2 clear" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
                   </div>
-                  <div className="column is-3">
-                    <span onClick={() => this.handleDecreaseClick(item)}><strong> ＜ </strong></span>
-                    <span>{item.unitQuantity}</span>
-                    <span onClick={() => this.handleIncreaseClick(item)}> <strong>＞</strong></span>
-                  </div>
-                  <div className="column is-3">
-                    <p>£{item.unitPrice}</p>
-                  </div>
-                  <div className="column is-1">
-                    <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
-                  </div>
-                </div>
-              ):
-                <p>No items</p>}
-              <hr />
-              {basket && hasItems &&
-                <div className="columns">
-                  <div className="column">
-                    <p className="column is-offset-6">Total price: £ {basketLib.totalBasketPrice()}</p>
-                  </div>
-                </div>
-              }
-              <div className="columns">
-                <div className="column is-4">
-                  <Link to={'/bags'}>
-                    <button className="button continue" >Continue Shopping</button>
-                  </Link>
-                </div>
-                <div className="column is-8">
-                  <button className="button is-dark is-offset-4 checkout" onClick={this.checkout}>Check out</button>
-                  <button className="button is-light is-offset-2 clear" onClick={() => this.setState({ basket: basketLib.createBasket() })}>Clear basket</button>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </main>
     );
   }

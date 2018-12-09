@@ -6,15 +6,19 @@
 @import "pages/index";
 
 
-
-
-
 .pic {
   height: 90vh;
   overflow: auto;
 }
 
-.pics{
+#pics{
+  width:40%;
+  height:30%;
+}
+#history-pic{
   width:50%;
   height:50%;
+}
+.fas{
+  font-size: 15px;
 }

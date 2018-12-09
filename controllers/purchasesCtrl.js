@@ -36,5 +36,4 @@ module.exports = {
   allPurchase: allPurchase,
   createPurchase: createPurchase,
   indexPurchase: indexPurchase
-  // updateRoute: updateRoute
 };
