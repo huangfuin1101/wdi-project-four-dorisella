@@ -44,6 +44,7 @@ export default class BagShow extends React.Component {
     this.setState({ [name]: value });
   }
 
+
   render() {
     const bag = this.state.bag;
     return (
