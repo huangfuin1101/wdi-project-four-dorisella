@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function BagBox ({ bag }){
   console.log('this is bag._id', bag._id);
   return (
-    <div className="column is-4 columns is-12 is-mobile">
+    <div className="column is-4-desktop is-6-tablet is-12-mobile">
       <Link to={`/bags/${bag._id}`}>
         <figure className="image index-img">
           <img  src={ bag.image} />
