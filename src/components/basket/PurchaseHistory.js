@@ -28,8 +28,27 @@ class PurchaseHistory extends React.Component {
           <section className="hero">
             <h2 className='title is-2 has-text-centered'>Order History</h2>
             <hr />
+            <div className="columns is-mobile">
+              <div className="column is-2">
+                <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">PRODUCT</h5>
+              </div>
+              <div className="column is-2">
+                <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">DESCRIPTION</h5>
+              </div>
+              <div className="column is-2">
+                <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">AMOUNT</h5>
+              </div>
+              <div className="column is-2">
+                <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">UNIT</h5>
+              </div>
+              <div className="column is-2">
+                <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">SUBTOTAL</h5>
+              </div>
+              <div className="column is-2">
+                <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">TIME OF ORDER</h5>
+              </div>
+            </div>
             <div className="hero-body">
-              <div className="columns is-mobile">
               {
                 this.state.purchases && this.state.purchases.map(purchase =>
                   <div key={purchase._id} className="columns is-mobile">
@@ -54,16 +73,16 @@ class PurchaseHistory extends React.Component {
                     </div>
                     <div className="column is-2">
                       {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">SUBTOTAL</h5> */}
-                      <p className="has-text-centered">Total £ {purchase.totalPrice}</p>
+                      <p className="has-text-right">Total £ {purchase.totalPrice}</p>
                     </div>
                     <div className="column is-2">
                       {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">TIME OF ORDER</h5> */}
-                      <p className="has-text-centered">{moment(purchase.createdAt).fromNow()}</p>
+                      <p className="has-text-right">{moment(purchase.createdAt).fromNow()}</p>
                     </div>
                   </div>
                 )
               }
-            </div>
+
             </div>
           </section>
         </div>
