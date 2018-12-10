@@ -16,6 +16,8 @@ class Flash extends React.Component {
     }
   }
 
+
+
   clearMessage() {
     clearFlashMessage();
     this.setState({ flash: null });
@@ -25,10 +27,10 @@ class Flash extends React.Component {
     return (
       <div className="flash-container">
         {this.state.flash &&
-          <div className={`notification is-${this.state.flash.type}`}>
-            <p>{this.state.flash.message}</p>
-            <button className="delete" onClick={this.clearMessage}></button>
-          </div>
+        <div className={`notification is-${this.state.flash.type}`}>
+          <p>{this.state.flash.message}</p>
+          <button className="delete" onClick={this.clearMessage}></button>
+        </div>
         }
       </div>
     );

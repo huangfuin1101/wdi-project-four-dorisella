@@ -5,6 +5,7 @@ function indexRoute(req, res, next) {
     .find()
     .then(bags => {
       res.json(bags);
+      console.log('this is the stock', bags[0].stock);
     })
     .catch(next);
 }
@@ -13,7 +14,7 @@ function indexRoute(req, res, next) {
 function showRoute(req, res, next) {
   Bag
     .findById(req.params.id)
-    .then(bag => res.json(bag))
+    .then(bag =>  res.json(bag))
     .catch(next);
 }
 

@@ -2,9 +2,12 @@
   position: relative;
   width: 30%;
   margin-left:35vw;
+  margin-bottom:-8vh;
   // margin: 0 auto;
   .notification {
-    background-color: grey;
+    // background-color: grey;
+    background-color: #cfcdcd;
+    // opacity: 0.5;
     position: absolute;
     animation: slidein 0.5s linear;
     z-index: 2;

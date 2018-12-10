@@ -74,11 +74,14 @@ export function checkout() {
     Authorization: `Bearer ${getToken()}`}})
     .then(() => {
       createBasket();
+      createFlashMessage('Thank you for purchase');
       this.props.history.push('/purchases');
     })
-    .catch(() => {
+    .catch(error => {
       console.log('test');
-      createFlashMessage('Insufficient Stock');
+      createFlashMessage('Insufficient Stock', error);
+      this.props.history.replace('/basket');
+
     });
 
 }

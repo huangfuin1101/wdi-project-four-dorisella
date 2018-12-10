@@ -14,6 +14,9 @@ purchaseSchema.pre('validate', function(next){
     console.log('purchase is',this, 'enough stock?', enoughStock);
     if(!enoughStock){
       this.invalidate('items', 'insufficient stock');
+      // res.json({
+      //   messgae: 'insufficient stock'
+      // });
     }
     next();
   });

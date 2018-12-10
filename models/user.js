@@ -18,4 +18,3 @@ userSchema.methods.validatePassword = function(attemptedPassword){
 };
 
 module.exports = mongoose.model('User', userSchema);
-// accountType: {type: String, enum: ['customer', 'admin'], default: 'customer'}
