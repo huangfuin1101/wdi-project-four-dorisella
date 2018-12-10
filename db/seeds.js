@@ -32,14 +32,14 @@ const purchaseData = [
     bag: bagIds[0],
     unitQuantity: 1,
     user: userIds[0],
-    unitPrice: 1600,
+    retailPrice: 1600,
     status: 'paid'
   }, {
     _id: purchaseIds[1],
     bag: bagIds[1],
     unitQuantity: 2,
     user: userIds[0],
-    unitPrice: 1850,
+    retailPrice: 1850,
     status: 'paid'
   }
 ];
@@ -68,7 +68,7 @@ const bagData =[
     image: 'https://images.pexels.com/photos/933499/pexels-photo-933499.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     detail: '11 X 9 X 7 IN (28 X 23 X 17 CM) 100% CALFSKIN, FLAP CLOSURE WITH HIDDEN METALLIC PIECE AND ZIPPED',
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
-    unitPrice: 1600,
+    retailPrice: 1600,
     stock: 2
   },
   {
@@ -79,7 +79,7 @@ const bagData =[
     // image: 'https://www.celine.com/dw/image/v2/BBST_PRD/on/demandware.static/-/Sites-masterCatalog/default/dw84c2988c/images/large/183313A4U.38NO_1_LIBRARY_81246.jpg?sw=1156&sh=1600&sm=fit&strip=false',
     detail: '9 X 10 X 9 IN (24 X 26 X 22 CM)  100% CLFSKIN SILVER METAL HARDWARE  100% CALFSKIN LINING  FUNCTIONAL LEATHER BELT TO TIGHTEN THE BAG AND INNER',
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
-    unitPrice: 1850,
+    retailPrice: 1850,
     stock: 3
   },
   {
@@ -90,7 +90,7 @@ const bagData =[
     image: 'https://images.pexels.com/photos/936098/pexels-photo-936098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     detail: '9 X 7 X 3 IN (24 X 18 X 7 CM) 100% CALFSKIN GOLD METAL HARDWARE 100% LAMBSKIN LINING',
     description: 'MEDIUM CLASSIC BAG IN BOX CALFSKIN WITH AN ADJUSTABLE AND REMOVABLE LEATHER STRAP AND A BRASS CLASP CLOSURE',
-    unitPrice: 2850,
+    retailPrice: 2850,
     stock: 5
   },
   {
@@ -101,8 +101,8 @@ const bagData =[
     image: 'https://images.pexels.com/photos/1068638/pexels-photo-1068638.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     detail: '11 X 14 X 8 IN (28 X 36 X 21 CM) 100% CALFSKIN GOLD METAL HARDWARE 100% CALFSKIN LINING',
     description: 'MEDIUM CABAS PHANTOM IN SOFT GRAINED CALFSKIN WITH LEATHER HANDLES AND STRAPS TO TIGHTEN THE BAG',
-    unitPrice: 1300,
-    stock: 1
+    retailPrice: 1300,
+    stock: 2
   },
   {
     _id: bagIds[4],
@@ -111,7 +111,7 @@ const bagData =[
     image: 'https://images.pexels.com/photos/1187954/pexels-photo-1187954.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     detail: '9 X 11 X 4 IN (22 X 29 X 10 CM) 100% CALFSKIN  SILVER METAL HARDWARE',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    unitPrice: 820,
+    retailPrice: 820,
     stock: 4
   },{
     _id: bagIds[5],
@@ -120,7 +120,7 @@ const bagData =[
     image: 'https://images.pexels.com/photos/824724/pexels-photo-824724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     detail: '9 X 10 X 9 IN (24 X 26 X 22 CM) 100% CALFSKIN SILVER METAL HARDWARE 100% CALFSKIN LINING',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    unitPrice: 1850,
+    retailPrice: 1850,
     stock: 2
   }];
 

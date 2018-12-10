@@ -25,18 +25,18 @@ export function addItem(itemToAdd, quantity) {
   itemToAdd.bag = itemToAdd._id;
   if (!getItem(basket, itemToAdd._id))
     basket.push(itemToAdd);
-  incrementQuantity(basket, itemToAdd._id, quantity);
+  increaseQuantity(basket, itemToAdd._id, quantity);
   saveBasket(basket);
 }
 
-export function incrementQuantity(basket, itemId, quantity) {
+export function increaseQuantity(basket, itemId, quantity) {
   const item = getItem(basket, itemId);
   item.unitQuantity =(item.unitQuantity || 0) + quantity;
   saveBasket(basket);
   console.log('item',basket);
 }
 
-export function decrementQuantity(basket, itemId, quantity) {
+export function decreaseQuantity(basket, itemId, quantity) {
   const item = getItem(basket, itemId);
   if(item.unitQuantity > 0)
     item.unitQuantity = item.unitQuantity - quantity;
@@ -60,7 +60,7 @@ export function removeItem(itemId) {
 
 export function totalBasketPrice() {
   const basket = getBasket();
-  const itemTotals = basket.map(item => item.unitPrice * item.unitQuantity);
+  const itemTotals = basket.map(item => item.retailPrice * item.unitQuantity);
   return itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0);
 }
 
@@ -78,6 +78,7 @@ export function checkout() {
       this.props.history.push('/purchases');
     })
     .catch((error) => {
+      console.log('outOfStock', error.response.data.outOfStock);
       this.setState({ outOfStock: error.response.data.outOfStock });
       createFlashMessage('Insufficient Stock', error);
       // this.props.history.replace('/basket');
@@ -88,6 +89,6 @@ export function checkout() {
 
 export default {
   createBasket, getBasket, saveBasket, getItem, addItem,
-  incrementQuantity, removeItem, totalBasketPrice,
-  checkout, basketAmount, decrementQuantity
+  increaseQuantity, removeItem, totalBasketPrice,
+  checkout, basketAmount, decreaseQuantity
 };

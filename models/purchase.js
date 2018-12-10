@@ -2,15 +2,8 @@ const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
   bag: { type: mongoose.Schema.ObjectId, ref: 'Bag'},
-  unitQuantity: {
-    type: Number
-    // validate: {
-    //   isAsync: true,
-    //   validator: checkQuantity,
-    //   message: `${this.bag.name} does not have enough stock.`
-    // }
-  },
-  unitPrice: Number,
+  unitQuantity: Number,
+  retailPrice: Number,
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
   status: { type: String, enum: ['paid', 'sent', 'received'], default: 'paid' }
 }, { timestamps: true });
@@ -48,7 +41,7 @@ purchaseSchema.pre('save', function(next){
 
 purchaseSchema.virtual('totalPrice')
   .get(function() {
-    return this.unitPrice * this.unitQuantity;
+    return this.retailPrice * this.unitQuantity;
   });
 
 purchaseSchema.set('toJSON', { virtuals: true });

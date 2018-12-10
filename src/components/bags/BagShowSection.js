@@ -9,7 +9,7 @@ function BagShowSection({ bag }) {
       <div className="column">
         <p className="has-text-right name">{bag.name}</p>
         <p className="has-text-right brand">{bag.brand}</p>
-        <p className="has-text-right price"> {bag.unitPrice} GBP</p>
+        <p className="has-text-right price"> {bag.retailPrice} GBP</p>
         <hr/>
         <p className="has-text-left description">{bag.description}</p>
         <p className="has-text-left detail">{bag.detail}</p>

@@ -12,7 +12,9 @@ import { getToken } from '../../lib/auth';
 export default class BagShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      // bag: {}
+    };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -56,14 +58,21 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
-        { isAuthenticated() && <div className="columns is-mobile">
+        { isAuthenticated() && <div className="columns is-mobile is-mutiline add">
           <div className="column is-3 is-offset-3">
             {/* <label htmlFor="quantity" className="label">Quantity</label> */}
             <input className="input" type="number" max='10' min='1' name="quantity"
               value={this.state.quantity || 0} onChange={this.handleChange}/>
           </div>
-          <div className="column is-6">
-            <button className="button is-dark" onClick={this.handleClick}>Add</button>
+          {bag
+            ?
+            <div className="column is-6">
+              { this.state.bag.stock <= 3 && <p className="hurry">Hurry! Only {this.state.bag.stock} in stock</p>}
+            </div>
+            :
+            <p>please wait</p>}
+          <div className="column is-3">
+            <button id="add-btn" className="button is-dark" onClick={this.handleClick}>Add</button>
           </div>
         </div>}
         <div className="columns is-mobile is-12">
@@ -74,7 +83,6 @@ export default class BagShow extends React.Component {
           </Link>}
         </div>
       </section>
-
     );
   }
 }

@@ -65,7 +65,7 @@ class BagUpdate extends React.Component{
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value= {this.state.bag.unitPrice || ''}  name="unitPrice"  placeholder="unitPrice"/>
+                        <input className="input" onChange={this.handleChange}   value= {this.state.bag.retailPrice || ''}  name="retailPrice"  placeholder="retailPrice"/>
                       </div>
                     </div>
                     <div className="field">

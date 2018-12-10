@@ -28,13 +28,13 @@ class Basket extends React.Component {
   }
 
   handleIncreaseClick(item) {
-    basketLib.incrementQuantity(basketLib.getBasket(), item._id, 1);
+    basketLib.increaseQuantity(basketLib.getBasket(), item._id, 1);
     this.setState({ basket: basketLib.getBasket() });
     basketLib.totalBasketPrice();
   }
 
   handleDecreaseClick(item) {
-    basketLib.decrementQuantity(basketLib.getBasket(), item._id, 1);
+    basketLib.decreaseQuantity(basketLib.getBasket(), item._id, 1);
     this.setState({ basket: basketLib.getBasket() });
   }
 
@@ -44,7 +44,7 @@ class Basket extends React.Component {
     console.log('this is basket', this.state.basket);
     const basket = this.state.basket;
     const hasItems = basket && !!basket.length;
-
+    console.log(';this.state.outOfStock', this.state.outOfStock);
     return (
       <main>
         <div className="section is-small">
@@ -86,7 +86,7 @@ class Basket extends React.Component {
                 {basket && hasItems &&
                   <div className="columns is-mobile">
                     <div className="column">
-                      <p className="column is-offset-10">Total price: £ {basketLib.totalBasketPrice()}</p>
+                      <p className="column is-offset-10">Total Price: £ {basketLib.totalBasketPrice()}</p>
                     </div>
                   </div>
                 }

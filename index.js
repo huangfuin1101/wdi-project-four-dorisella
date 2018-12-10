@@ -17,7 +17,6 @@ app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
 app.use((error, req, res, next) => {
   if (error && error.name === 'ValidationError') {
-
     res.json({ errors: error.errors });
   }
   next();

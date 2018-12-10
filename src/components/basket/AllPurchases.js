@@ -70,7 +70,7 @@ class AllPurchases extends React.Component {
                       <p className="has-text-centered">{purchase.bag.name}</p>
                     </div>
                     <div className="column is-2">
-                      <p className="has-text-centered">£ {purchase.unitPrice}</p>
+                      <p className="has-text-centered">£ {purchase.retailPrice}</p>
                     </div>
                     <div className="column is-1">
                       <p className="has-text-centered">{purchase.unitQuantity}</p>
