@@ -25,6 +25,12 @@
 .index-img:hover{
     opacity: 0.2;
 }
-// .search{
-//   margin-left: 11vw;
-// }
+.search{
+border-style: none;
+border-bottom: 0.2px solid;
+border-color: #cfcdcd;
+opacity: 0.8;
+padding: 10px;
+width: 25vw;
+margin-bottom: 2vh;
+}
