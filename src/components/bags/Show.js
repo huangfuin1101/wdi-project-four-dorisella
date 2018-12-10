@@ -56,7 +56,7 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
-        { isAuthenticated() && <div className="columns">
+        { isAuthenticated() && <div className="columns is-mobile">
           <div className="column is-3 is-offset-3">
             {/* <label htmlFor="quantity" className="label">Quantity</label> */}
             <input className="input" type="number" max='10' min='1' name="quantity"

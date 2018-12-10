@@ -4,7 +4,7 @@ const authCtrl = require('../controllers/authCtrl');
 const purchasesCtrl = require('../controllers/purchasesCtrl');
 const secureRoute = require('../lib/secureRoute');
 const adminRoute = require('../lib/adminRoute');
-// const secureRoute = require('../lib/secureRoute');
+const stockCtrl = require('../controllers/stockCtrl');
 
 
 router.route('/bags')
@@ -23,6 +23,7 @@ router.post('/login', authCtrl.login);
 router.post('/checkout', secureRoute, purchasesCtrl.createPurchase);
 router.get('/purchases', secureRoute, purchasesCtrl.indexPurchase);
 router.get('/allpurchases', adminRoute, purchasesCtrl.allPurchase);
+router.get('/stock/:id', stockCtrl.stockIndex);
 
 
 module.exports = router;

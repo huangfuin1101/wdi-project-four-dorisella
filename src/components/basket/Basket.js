@@ -9,6 +9,7 @@ class Basket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      outOfStock: []
     };
     this.checkout = basketLib.checkout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -54,7 +55,7 @@ class Basket extends React.Component {
               <div className="container has-text-centered">
                 {basket && hasItems ? basket.map(item =>
                   <div key={item._id} className="columns is-mobile">
-                    <div className="column is-3">
+                    <div className="column is-2">
                       <Link to={`/bags/${item._id}`}>
                         <figure id="pics" className="image">
                           <img  src={ item.image} />
@@ -69,11 +70,14 @@ class Basket extends React.Component {
                       <span>{item.unitQuantity}</span>
                       <span onClick={() => this.handleIncreaseClick(item)}> <strong>＞</strong></span>
                     </div>
-                    <div className="column is-3">
+                    <div className="column is-2">
                       <p>£{item.unitPrice}</p>
                     </div>
                     <div className="column is-1">
                       <a className="delete" onClick={() => this.handleDelete(item._id)}></a>
+                    </div>
+                    <div className="column is-2 has-text-centered">
+                      {this.state.outOfStock.includes(item._id) && <p>Out of stock</p>}
                     </div>
                   </div>
                 ):

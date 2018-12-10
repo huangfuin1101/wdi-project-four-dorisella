@@ -1,6 +1,6 @@
 const Bag = require('../models/bag');
 
-function findStockRoute(req, res, next) {
+function stockIndexRoute(req, res, next) {
   Bag
     .findById(req.params.id)
     .then(bag => {
@@ -13,5 +13,5 @@ function findStockRoute(req, res, next) {
 
 
 module.exports = {
-  findStock: findStockRoute
+  stockIndex: stockIndexRoute
 };

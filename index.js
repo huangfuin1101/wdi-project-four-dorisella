@@ -15,6 +15,14 @@ app.use('/api', router);
 
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
+app.use((error, req, res, next) => {
+  if (error && error.name === 'ValidationError') {
+
+    res.json({ errors: error.errors });
+  }
+  next();
+});
+
 app.listen(port, () => console.log(`Express is listening on port ${port}`));
 
 module.exports = app;

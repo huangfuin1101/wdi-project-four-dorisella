@@ -2,21 +2,38 @@ const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
   bag: { type: mongoose.Schema.ObjectId, ref: 'Bag'},
-  unitQuantity: Number,
+  unitQuantity: {
+    type: Number
+    // validate: {
+    //   isAsync: true,
+    //   validator: checkQuantity,
+    //   message: `${this.bag.name} does not have enough stock.`
+    // }
+  },
   unitPrice: Number,
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
   status: { type: String, enum: ['paid', 'sent', 'received'], default: 'paid' }
 }, { timestamps: true });
 
+
+// function checkQuantity(quantity, respond) {
+//   console.log('Validating', this, quantity);
+//   this.populate('bag', () => {
+//     const enoughStock = this.bag.stock >= this.unitQuantity;
+//     if(!enoughStock){
+//       respond(false);
+//     } else {
+//       respond(true);
+//     }
+//   });
+// }
+
 purchaseSchema.pre('validate', function(next){
   this.populate('bag', () => {
     const enoughStock = this.bag.stock >= this.unitQuantity;
-    console.log('purchase is',this, 'enough stock?', enoughStock);
+    console.log('purchasing',this.bag._id, 'enough stock?', enoughStock);
     if(!enoughStock){
-      this.invalidate('items', 'insufficient stock');
-      // res.json({
-      //   messgae: 'insufficient stock'
-      // });
+      this.invalidate(this.bag._id.toString(), 'not enough stock');
     }
     next();
   });

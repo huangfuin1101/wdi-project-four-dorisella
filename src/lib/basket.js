@@ -31,7 +31,7 @@ export function addItem(itemToAdd, quantity) {
 
 export function incrementQuantity(basket, itemId, quantity) {
   const item = getItem(basket, itemId);
-  item.unitQuantity =(item.unitQuantity || 0) + Math.abs(quantity);
+  item.unitQuantity =(item.unitQuantity || 0) + quantity;
   saveBasket(basket);
   console.log('item',basket);
 }
@@ -77,10 +77,10 @@ export function checkout() {
       createFlashMessage('Thank you for purchase');
       this.props.history.push('/purchases');
     })
-    .catch(error => {
-      console.log('test');
+    .catch((error) => {
+      this.setState({ outOfStock: error.response.data.outOfStock });
       createFlashMessage('Insufficient Stock', error);
-      this.props.history.replace('/basket');
+      // this.props.history.replace('/basket');
 
     });
 
