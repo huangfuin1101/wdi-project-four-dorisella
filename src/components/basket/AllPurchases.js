@@ -38,7 +38,7 @@ class AllPurchases extends React.Component {
               <div className="column is-2">
                 <h5 className="has-text-centered has-text-weight-bold font">DESCRIPTION</h5>
               </div>
-              <div className="column is-2">
+              <div className="column is-1">
                 <h5 className="has-text-centered has-text-weight-bold font">AMOUNT</h5>
               </div>
               <div className="column is-1">
@@ -46,6 +46,9 @@ class AllPurchases extends React.Component {
               </div>
               <div className="column is-2">
                 <h5 className="has-text-centered has-text-weight-bold font">SUBTOTAL</h5>
+              </div>
+              <div className="column is-2">
+                <h5 className="has-text-centered has-text-weight-bold font">GROSS PROFIT</h5>
               </div>
               <div className="column is-2">
                 <h5 className="has-text-centered has-text-weight-bold font">TIME OF ORDER</h5>
@@ -69,14 +72,17 @@ class AllPurchases extends React.Component {
                     <div className="column is-2">
                       <p className="has-text-centered">{purchase.bag.name}</p>
                     </div>
-                    <div className="column is-2">
+                    <div className="column is-1">
                       <p className="has-text-centered">£ {purchase.retailPrice}</p>
                     </div>
                     <div className="column is-1">
                       <p className="has-text-centered">{purchase.unitQuantity}</p>
                     </div>
                     <div className="column is-2">
-                      <p className="has-text-centered">Total £{purchase.totalPrice}</p>
+                      <p className="has-text-centered"> £ {purchase.totalPrice}</p>
+                    </div>
+                    <div className="column is-2">
+                      <p className="has-text-centered"> £ {purchase.grossProfit}</p>
                     </div>
                     <div className="column is-2">
                       <p className="has-text-centered">{moment(purchase.createdAt).fromNow()}</p>

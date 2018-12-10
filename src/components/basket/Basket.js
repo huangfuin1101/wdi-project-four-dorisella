@@ -44,7 +44,7 @@ class Basket extends React.Component {
     console.log('this is basket', this.state.basket);
     const basket = this.state.basket;
     const hasItems = basket && !!basket.length;
-    console.log(';this.state.outOfStock', this.state.outOfStock);
+    console.log('this.state.outOfStock', this.state.outOfStock);
     return (
       <main>
         <div className="section is-small">
@@ -71,7 +71,7 @@ class Basket extends React.Component {
                       <span onClick={() => this.handleIncreaseClick(item)}> <strong>＞</strong></span>
                     </div>
                     <div className="column is-2">
-                      <p>£{item.unitPrice}</p>
+                      <p>£{item.retailPrice}</p>
                     </div>
                     <div className="column is-1">
                       <a className="delete" onClick={() => this.handleDelete(item._id)}></a>

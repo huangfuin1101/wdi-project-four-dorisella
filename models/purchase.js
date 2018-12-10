@@ -4,6 +4,7 @@ const purchaseSchema = new mongoose.Schema({
   bag: { type: mongoose.Schema.ObjectId, ref: 'Bag'},
   unitQuantity: Number,
   retailPrice: Number,
+  unitCost: Number,
   user: { type: mongoose.Schema.ObjectId, ref: 'User'},
   status: { type: String, enum: ['paid', 'sent', 'received'], default: 'paid' }
 }, { timestamps: true });
@@ -42,6 +43,11 @@ purchaseSchema.pre('save', function(next){
 purchaseSchema.virtual('totalPrice')
   .get(function() {
     return this.retailPrice * this.unitQuantity;
+  });
+
+purchaseSchema.virtual('grossProfit')
+  .get(function() {
+    return (this.retailPrice - this.unitCost) * this.unitQuantity;
   });
 
 purchaseSchema.set('toJSON', { virtuals: true });

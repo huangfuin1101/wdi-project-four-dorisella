@@ -33,6 +33,7 @@ const purchaseData = [
     unitQuantity: 1,
     user: userIds[0],
     retailPrice: 1600,
+    unitCost: 1000,
     status: 'paid'
   }, {
     _id: purchaseIds[1],
@@ -40,6 +41,7 @@ const purchaseData = [
     unitQuantity: 2,
     user: userIds[0],
     retailPrice: 1850,
+    unitCost: 950,
     status: 'paid'
   }
 ];
@@ -69,6 +71,7 @@ const bagData =[
     detail: '11 X 9 X 7 IN (28 X 23 X 17 CM) 100% CALFSKIN, FLAP CLOSURE WITH HIDDEN METALLIC PIECE AND ZIPPED',
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
     retailPrice: 1600,
+    unitCost: 1000,
     stock: 2
   },
   {
@@ -80,6 +83,7 @@ const bagData =[
     detail: '9 X 10 X 9 IN (24 X 26 X 22 CM)  100% CLFSKIN SILVER METAL HARDWARE  100% CALFSKIN LINING  FUNCTIONAL LEATHER BELT TO TIGHTEN THE BAG AND INNER',
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
     retailPrice: 1850,
+    unitCost: 950,
     stock: 3
   },
   {
@@ -91,6 +95,7 @@ const bagData =[
     detail: '9 X 7 X 3 IN (24 X 18 X 7 CM) 100% CALFSKIN GOLD METAL HARDWARE 100% LAMBSKIN LINING',
     description: 'MEDIUM CLASSIC BAG IN BOX CALFSKIN WITH AN ADJUSTABLE AND REMOVABLE LEATHER STRAP AND A BRASS CLASP CLOSURE',
     retailPrice: 2850,
+    unitCost: 2000,
     stock: 5
   },
   {
@@ -102,6 +107,7 @@ const bagData =[
     detail: '11 X 14 X 8 IN (28 X 36 X 21 CM) 100% CALFSKIN GOLD METAL HARDWARE 100% CALFSKIN LINING',
     description: 'MEDIUM CABAS PHANTOM IN SOFT GRAINED CALFSKIN WITH LEATHER HANDLES AND STRAPS TO TIGHTEN THE BAG',
     retailPrice: 1300,
+    unitCost: 750,
     stock: 2
   },
   {
@@ -112,6 +118,7 @@ const bagData =[
     detail: '9 X 11 X 4 IN (22 X 29 X 10 CM) 100% CALFSKIN  SILVER METAL HARDWARE',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     retailPrice: 820,
+    unitCost: 400,
     stock: 4
   },{
     _id: bagIds[5],
@@ -121,6 +128,7 @@ const bagData =[
     detail: '9 X 10 X 9 IN (24 X 26 X 22 CM) 100% CALFSKIN SILVER METAL HARDWARE 100% CALFSKIN LINING',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     retailPrice: 1850,
+    unitCost: 1000,
     stock: 2
   }];
 

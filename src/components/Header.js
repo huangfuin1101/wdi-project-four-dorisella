@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuthenticated, deleteToken, decodeToken, isAdmin } from '../lib/auth';
-import { basketAmount } from '../lib/basket';
+import { basketAmount, getBasket } from '../lib/basket';
 import { createFlashMessage } from '../lib/flash';
 
 
@@ -32,8 +32,8 @@ class Header extends React.Component {
             { isAdmin() && <Link className="navbar-item bar" to='/bags/new'> ADD AN ITEM</Link>}
             {!isAuthenticated()  && pathname !== '/login' && <Link className="navbar-item bar" to='/login'> LOGIN</Link>}
             {!isAuthenticated() && pathname !== '/register' && <Link className="navbar-item bar" to='/register'> REGISTER</Link>}
-            {isAuthenticated() && pathname !== '/basket' && <Link className="navbar-item bar" to='/basket'> <i className="fas fa-shopping-basket"></i>  { basketAmount()}</Link>}
             {isAuthenticated() && <a className="navbar-item bar" onClick={this.handleLogout}>LOGOUT { username.toUpperCase() }</a>}
+            {isAuthenticated() && getBasket() && <Link className="navbar-item bar" to='/basket'> <i className="fas fa-shopping-basket"></i>  { basketAmount()}</Link>}
             {isAuthenticated() && pathname !== '/basket' &&  <Link className="navbar-item bar" to='/basket'> SHOPPING CART</Link>}
             {isAuthenticated() && pathname !== '/purchases'  && <Link className="navbar-item bar" to='/purchases'>ORDER HISTORY</Link>}
             {isAdmin()&& <Link className="navbar-item bar" to='/allpurchases'>ALL PURCHASES</Link>}

@@ -34,13 +34,13 @@
   width:60%;
 }
 .hurry{
-    font-style: italic;
-    font-size: 16px;
-    font-family: $index-font;
-    padding: 1vh;
-    margin-left: -1vw;
-    opacity: 1;
-    animation: fade 3s linear infinite;
+  font-style: italic;
+  font-size: 16px;
+  font-family: $index-font;
+  padding: 1vh;
+  margin-left: -1vw;
+  opacity: 1;
+  animation: fade 3s linear infinite;
 }
 @keyframes fade {
   0%,100% { opacity: 0 }

@@ -9,7 +9,8 @@ const bagSchema = new mongoose.Schema({
   detail: String,
   description: String,
   stock: Number,
-  unitPrice: Number
+  retailPrice: Number,
+  unitCost: Number
 });
 
 module.exports = mongoose.model('Bag', bagSchema);

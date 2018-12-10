@@ -12,7 +12,7 @@ function BagBox ({ bag }){
         <div className="column is-multiline">
           <h6 className="bag-name">{ bag.name }</h6>
           <p className="bag-brand">{ bag.brand }</p>
-          <p className="bag-price"> { bag.unitPrice } GBP</p>
+          <p className="bag-price"> { bag.retailPrice } GBP</p>
         </div>
       </Link>
     </div>
