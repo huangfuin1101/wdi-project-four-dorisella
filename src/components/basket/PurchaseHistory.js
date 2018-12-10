@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import { getToken } from '../../lib/auth';
+import { Link } from 'react-router-dom';
 
 class PurchaseHistory extends React.Component {
   constructor(props) {
@@ -28,13 +29,16 @@ class PurchaseHistory extends React.Component {
             <h2 className='title is-2 has-text-centered'>Order History</h2>
             <hr />
             <div className="hero-body">
+              <div className="columns is-mobile">
               {
                 this.state.purchases && this.state.purchases.map(purchase =>
                   <div key={purchase._id} className="columns is-mobile">
                     <div className="column is-2">
-                      <figure  id="history-pic" className="image">
-                        <img  src={ purchase.bag.image} />
-                      </figure>
+                      <Link to={`/bags/${purchase.bag._id}`}>
+                        <figure  id="history-pic" className="image">
+                          <img  src={ purchase.bag.image} />
+                        </figure>
+                      </Link>
                     </div>
                     <div className="column is-2">
                       {/* <h5 className="subtitle is-5 has-text-centered has-text-weight-bold">ITEM</h5> */}
@@ -50,7 +54,7 @@ class PurchaseHistory extends React.Component {
                     </div>
                     <div className="column is-2">
                       {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">SUBTOTAL</h5> */}
-                      <p className="has-text-centered">Total £{purchase.totalPrice}</p>
+                      <p className="has-text-centered">Total £ {purchase.totalPrice}</p>
                     </div>
                     <div className="column is-2">
                       {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">TIME OF ORDER</h5> */}
@@ -59,6 +63,7 @@ class PurchaseHistory extends React.Component {
                   </div>
                 )
               }
+            </div>
             </div>
           </section>
         </div>

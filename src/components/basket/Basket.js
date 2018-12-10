@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 class Basket extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
     this.checkout = basketLib.checkout.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = handleChange.bind(this);
