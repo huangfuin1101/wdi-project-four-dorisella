@@ -80,7 +80,7 @@ export function checkout() {
     .catch((error) => {
       console.log('outOfStock', error.response.data.outOfStock);
       this.setState({ outOfStock: error.response.data.outOfStock });
-      createFlashMessage('Insufficient Stock', error);
+      // createFlashMessage('Insufficient Stock', error);
       // this.props.history.replace('/basket');
 
     });

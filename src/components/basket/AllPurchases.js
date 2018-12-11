@@ -28,6 +28,7 @@ class AllPurchases extends React.Component {
           <section className="hero">
             <h2 className='title is-3 has-text-centered order-title'>ALL ORDER HISTORY</h2>
             <hr />
+            <div className="hero-body bag-order">
             <div className="columns is-mobile">
               <div className="column is-1">
                 <h5 className="has-text-centered has-text-weight-bold font">CUSTOMER</h5>
@@ -54,11 +55,12 @@ class AllPurchases extends React.Component {
                 <h5 className="has-text-centered has-text-weight-bold font">REMAINING STOCK</h5>
               </div>
               <div className="column is-2">
-                <h5 className="has-text-centered has-text-weight-bold font">TIME OF ORDER</h5>
+                <h5 className="has-text-centered has-text-weight-bold font">ORDER TIME</h5>
               </div>
             </div>
+            </div>
 
-            <div className="hero-body">
+            <div className="hero-body bag-name">
               {
                 this.state.purchases && this.state.purchases.map(purchase =>
                   <div key={purchase._id} className="columns is-mobile">
@@ -67,13 +69,13 @@ class AllPurchases extends React.Component {
                     </div>
                     <div className="column is-2">
                       <Link to={`/bags/${purchase.bag._id}`}>
-                        <figure  className="image">
+                        <figure  className="image order-img">
                           <img id="sold-pic" src={ purchase.bag.image} />
                         </figure>
                       </Link>
                     </div>
                     <div className="column is-2">
-                      <p className="has-text-centered">{purchase.bag.name}</p>
+                      <p className="has-text-centered bag-name">{purchase.bag.name}</p>
                     </div>
                     <div className="column is-1">
                       <p className="has-text-centered">£ {purchase.retailPrice}</p>
@@ -88,7 +90,9 @@ class AllPurchases extends React.Component {
                       <p className="has-text-centered"> £ {purchase.grossProfit}</p>
                     </div>
                     <div className="column is-1">
-                      <p className="has-text-centered"> {purchase.bag.stock} </p>
+                      <Link to={`/bags/${purchase.bag._id}`}>
+                        <p className="has-text-centered remain"> {purchase.bag.stock} </p>
+                      </Link>
                     </div>
                     <div className="column is-2">
                       <p className="has-text-centered">{moment(purchase.createdAt).fromNow()}</p>

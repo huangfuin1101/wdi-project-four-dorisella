@@ -62,15 +62,15 @@ export default class BagShow extends React.Component {
           <div className="column is-3 is-offset-3">
             {/* <label htmlFor="quantity" className="label">Quantity</label> */}
             <input className="input" type="number" max='10' min='1' name="quantity"
-              value={this.state.quantity || 1} onChange={this.handleChange}/>
+              value={this.state.quantity || 0} onChange={this.handleChange}/>
           </div>
           {bag
             ?
             <div className="column is-6">
-              { this.state.bag.stock <= 3 && <p className="hurry">Hurry! Only {this.state.bag.stock} in stock</p>}
+              { this.state.bag.stock <= 3 && this.state.bag.stock > 0 && <p className="hurry">Hurry! Only {this.state.bag.stock} in stock</p> }
             </div>
             :
-            <p>please wait</p>}
+            <p>Please wait</p>}    
           <div className="column is-3">
             <button id="add-btn" className="button is-dark" onClick={this.handleClick}>Add</button>
           </div>

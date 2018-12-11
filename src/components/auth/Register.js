@@ -46,7 +46,7 @@ class Register extends React.Component {
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value={this.state.password || ''}  name="password"  placeholder="password"/>
+                        <input className="input" onChange={this.handleChange}   value={this.state.password || ''}  name="password" type="password" placeholder="password"/>
                       </div>
                     </div>
                     <button className="button is-dark">Register</button>
