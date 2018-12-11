@@ -17,6 +17,7 @@ class BagUpdate extends React.Component{
     axios.get(`/api/bags/${this.props.match.params.id}`)
       .then(result=> {
         this.setState({ bag: result.data});
+        console.log('this is', this.state);
       });
   }
   handleSubmit(event) {
@@ -69,7 +70,7 @@ class BagUpdate extends React.Component{
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value= { this.state.bag.stock  || ''}   name="stock"  placeholder="unstock"/>
+                        <input className="input" onChange={this.handleChange}   value= { this.state.bag.stock }   name="stock"  placeholder="stock"/>
                       </div>
                     </div>
                     <div className="field">
