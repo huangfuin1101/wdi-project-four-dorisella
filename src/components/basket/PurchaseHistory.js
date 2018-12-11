@@ -60,23 +60,18 @@ class PurchaseHistory extends React.Component {
                       </Link>
                     </div>
                     <div  className="column is-2">
-                      {/* <h5 className="subtitle is-5 has-text-centered has-text-weight-bold">ITEM</h5> */}
-                      <p id="bagname" className="has-text-centered">{purchase.bag.name}</p>
+                      <p id="bagname" className="has-text-left">{purchase.bag.name}</p>
                     </div>
                     <div className="column is-2">
-                      {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">PRICER</h5> */}
                       <p className="has-text-centered">£ {purchase.retailPrice}</p>
                     </div>
                     <div className="column is-2">
-                      {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">QUANTITY</h5> */}
                       <p className="has-text-centered">{purchase.unitQuantity}</p>
                     </div>
                     <div className="column is-2">
-                      {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">SUBTOTAL</h5> */}
                       <p className="has-text-centered">Total £ {purchase.totalPrice}</p>
                     </div>
                     <div className="column is-2">
-                      {/* <h5 className="subtitle is-6 has-text-centered has-text-weight-bold">TIME OF ORDER</h5> */}
                       <p id="createdAt" className="has-text-centered">{moment(purchase.createdAt).fromNow()}</p>
                     </div>
                   </div>

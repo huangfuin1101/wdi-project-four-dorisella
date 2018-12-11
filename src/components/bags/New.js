@@ -12,11 +12,13 @@ class BagNew extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    axios.post('/api/bags', this.state,{headers: {
+    console.log('this is result', this.state);
+    axios.post('/api/bags', this.state, {headers: {
       Authorization: `Bearer ${getToken()}`}})
       .then(result => {
-        console.log('this is result', result);
         this.props.history.push(`/bags/${result.data._id}`);
+        console.log('this is result', result);
+        // this.props.history.push(`/bags/${result.data._id}`);
       });
   }
 
@@ -27,6 +29,7 @@ class BagNew extends React.Component {
   }
 
   render() {
+    console.log('added');
     return(
       <section className="hero is-light is-fullheight">
         <div className="hero-body">
@@ -58,17 +61,17 @@ class BagNew extends React.Component {
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value={this.state.retailPrice || ''}  name="retailPrice"  placeholder="retailPrice"/>
+                        <input className="input" onChange={this.handleChange}  type= "number" value={this.state.retailPrice || ''}  name="retailPrice"  placeholder="retailPrice"/>
                       </div>
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value={this.state.stock || ''}  name="stock"  placeholder="stock"/>
+                        <input className="input" onChange={this.handleChange}  type= "number" value={this.state.stock || ''}  name="stock"  placeholder="stock"/>
                       </div>
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value={this.state.unitCost || ''}  name="unitCost"  placeholder="unitCost"/>
+                        <input className="input" onChange={this.handleChange}  type= "number" value={this.state.unitCost || ''}  name="unitCost"  placeholder="unitCost"/>
                       </div>
                     </div>
                     <div className="field">

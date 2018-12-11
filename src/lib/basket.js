@@ -56,15 +56,22 @@ export function removeItem(itemId) {
   basket.splice(basket.indexOf(item), 1);
   saveBasket(basket);
   console.log('remove', basket);
+  console.log('getBasket', getBasket);
 }
 
 export function totalBasketPrice() {
+  console.log('basket', basket);
   const basket = getBasket();
   const itemTotals = basket.map(item => item.retailPrice * item.unitQuantity);
   return itemTotals.reduce((basketTotal, itemTotal) => basketTotal += itemTotal, 0);
 }
 
 export function basketAmount() {
+  console.log('getBasket', getBasket);
+  // const basket = getBasket();
+  // const basketItem = basket.map(item => item.unitQuantity);
+  // return basketItem.reduce();
+
   return getBasket().length;
 }
 

@@ -47,22 +47,22 @@ class Basket extends React.Component {
     console.log('this.state.outOfStock', this.state.outOfStock);
     return (
       <main>
-        <div className="section is-small">
+        <section className="section is-small">
           <section className="hero">
             <h2 className='title is-2 has-text-left'>SHOPPING BASKET</h2>
             <hr />
             <div className="hero-body">
               <div className="container has-text-centered">
                 {basket && hasItems ? basket.map(item =>
-                  <div key={item._id} className="columns is-mobile">
-                    <div className="column is-2">
+                  <div key={item._id} id="mobile" className="columns is-mobile is-12-mobile">
+                    <div className="column is-2-desktop is-12-mobile">
                       <Link to={`/bags/${item._id}`}>
                         <figure id="pics" className="image">
-                          <img  src={ item.image} />
+                          <img  src={ item.image } />
                         </figure>
                       </Link>
                     </div>
-                    <div className="column is-2 has-text-left">
+                    <div className="column is-2-desktop  is-12-mobile has-text-left">
                       <p>{item.name}</p>
                     </div>
                     <div className="column is-3">
@@ -104,7 +104,7 @@ class Basket extends React.Component {
               </div>
             </div>
           </section>
-        </div>
+        </section>
       </main>
     );
   }

@@ -25,8 +25,8 @@ class Index extends React.Component{
     const search = this.state.search;
     filteredBags = bags.filter(bag =>
       bag.name.toLowerCase().includes(search.toLowerCase()) ||
-      bag.brand.toLowerCase().includes(search.toLowerCase())||
-      bag.unitPrice.toString().includes(search.toString())
+      bag.brand.toLowerCase().includes(search.toLowerCase()) ||
+      bag.retailPrice.toString().includes(search.toString())
     );
     this.setState({ filteredBags: filteredBags });
   }

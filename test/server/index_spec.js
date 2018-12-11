@@ -8,7 +8,6 @@ const bagData =[
   {
     name: 'MINI BELT BAG IN GRAINED CALFSKIN',
     brand: 'CELINE',
-    // image: '../images.bag.jpg',
     image: 'https://www.celine.com/dw/image/v2/BBST_PRD/on/demandware.static/-/Sites-masterCatalog/default/dwad47d6e2/images/large/189103ZVA.10DC_1_LIBRARY_85428.jpg?sw=1156&sh=1600&sm=fit&strip=false',
     detail: '11 X 9 X 7 IN (28 X 23 X 17 CM) 100% CALFSKIN, FLAP CLOSURE WITH HIDDEN METALLIC PIECE AND ZIPPED',
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
@@ -83,6 +82,7 @@ describe('Bags INDEX', () => {
         done();
       });
   });
+  //
   it('should return the correct data', done => {
     api.get('/api/bags')
       .end((err, res) => {
@@ -92,8 +92,10 @@ describe('Bags INDEX', () => {
           expect(bag.description).to.eq(dataItem.description);
           expect(bag.detail).to.eq(dataItem.detail);
           expect(bag.image).to.eq(dataItem.image);
-          expect(bag.price).to.eq(dataItem.price);
+          expect(bag.retailPrice).to.eq(dataItem.retailPrice);
           expect(bag.brand).to.eq(dataItem.brand);
+          expect(bag.unitCost).to.eq(dataItem.unitCost);
+          expect(bag.unitQuantity).to.eq(dataItem.unitQuantity);
           expect(bag.stock).to.eq(dataItem.stock);
         });
         done();

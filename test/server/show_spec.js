@@ -1,10 +1,6 @@
-const mongoose = require('mongoose');
-const { dbURI } = require('../config/environment');
-const Bag = require('../models/bag');
-const User = require('../models/user');
-const Purchase = require('../models/purchase');
+/* global api, expect, describe, it, beforeEach */
 
-
+const Bag = require('../../models/bag');
 
 const bagIds = [
   '5be9860fcb16d525543cebb2',
@@ -15,51 +11,8 @@ const bagIds = [
   '5be9860fcb16d525543cedc7'
 ];
 
-const userIds = [
-  '5be9860fcb16d525543cefa0',
-  '5be9860fcb16d525543ceba2'
-];
 
-const purchaseIds = [
-  '5be9860fcb16d525543cede4',
-  '5be9860fcb16d525543beba9'
-];
-//
-//
-const purchaseData = [
-  {
-    _id: purchaseIds[0],
-    bag: bagIds[0],
-    unitQuantity: 1,
-    user: userIds[0],
-    retailPrice: 1600,
-    unitCost: 1000,
-    status: 'paid'
-  }, {
-    _id: purchaseIds[1],
-    bag: bagIds[1],
-    unitQuantity: 2,
-    user: userIds[0],
-    retailPrice: 1850,
-    unitCost: 950,
-    status: 'paid'
-  }
-];
 
-const userData = [{
-  _id: userIds[0],
-  username: 'doris',
-  email: 'd@d',
-  password: 'pass',
-  admin: true
-},{
-  _id: userIds[1],
-  username: 'cua',
-  email: 'c@c',
-  password: 'pass'
-}];
-
-mongoose.connect(dbURI);
 const bagData =[
   {
     _id: bagIds[0],
@@ -130,23 +83,49 @@ const bagData =[
     stock: 0
   }];
 
+let bagId;
 
-Bag.collection.drop();
-User.collection.drop();
-Purchase.collection.drop();
+describe('BAG SHOW', () => {
 
-Bag.create(bagData)
-  .then(bags => {
-    console.log(`${bags.length} bags have been created`);
-    User
-      .create(userData)
-      .then(users => {
-        console.log(`${users.length} users have been created`);
-        Purchase
-          .create(purchaseData)
-          .then(purchase => {
-            console.log(`${purchase.length} purchases have been created`);
-            mongoose.connection.close();
-          });
+  beforeEach(done => {
+    Bag.remove({})
+      .then(() => Bag.create(bagData))
+      .then(() => {
+        bagId = bagIds[1];
+        done();
       });
   });
+
+  it('should return a 200 response', done => {
+    api.get(`/api/countries/${bagId}`)
+      .end((err, res) => {
+        expect(res.status).to.eq(404);
+        done();
+      });
+  });
+
+  it('should return an object', done => {
+    api.get(`/api/countries/${bagId}`)
+      .end((err, res) => {
+        expect(res.body).to.be.an('object');
+        done();
+      });
+  });
+
+  it('should return the correct data', done => {
+    api.get(`/api/countries/${bagId}`)
+      .end((err, res) => {
+        expect(res.body.name).to.eq(bagData.name);
+        expect(res.body.brand).to.eq(bagData.brand);
+        expect(res.body.description).to.eq(bagData.description);
+        expect(res.body.detail).to.eq(bagData.detail);
+        expect(res.body.image).to.eq(bagData.image);
+        expect(res.body.retailPrice).to.eq(bagData.retailPrice);
+        expect(res.body.unitQuantity).to.eq(bagData.unitQuantity);
+        expect(res.body.unitCost).to.eq(bagData.unitCost);
+        expect(res.body.stock).to.eq(bagData.stock);
+        done();
+      });
+  });
+
+});
