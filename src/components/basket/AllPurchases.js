@@ -24,7 +24,7 @@ class AllPurchases extends React.Component {
     // const purchases = this.state.purchases;
     return(
       <main>
-        <div className="section is-small">
+        <div className="section is-large">
           <section className="hero">
             <h2 className='title is-3 has-text-centered order-title'>ALL ORDER HISTORY</h2>
             <hr />
@@ -47,8 +47,11 @@ class AllPurchases extends React.Component {
               <div className="column is-2">
                 <h5 className="has-text-centered has-text-weight-bold font">SUBTOTAL</h5>
               </div>
-              <div className="column is-2">
+              <div className="column is-1">
                 <h5 className="has-text-centered has-text-weight-bold font">GROSS PROFIT</h5>
+              </div>
+              <div className="column is-1">
+                <h5 className="has-text-centered has-text-weight-bold font">REMAINING STOCK</h5>
               </div>
               <div className="column is-2">
                 <h5 className="has-text-centered has-text-weight-bold font">TIME OF ORDER</h5>
@@ -81,8 +84,11 @@ class AllPurchases extends React.Component {
                     <div className="column is-2">
                       <p className="has-text-centered"> £ {purchase.totalPrice}</p>
                     </div>
-                    <div className="column is-2">
+                    <div className="column is-1">
                       <p className="has-text-centered"> £ {purchase.grossProfit}</p>
+                    </div>
+                    <div className="column is-1">
+                      <p className="has-text-centered"> {purchase.bag.stock} </p>
                     </div>
                     <div className="column is-2">
                       <p className="has-text-centered">{moment(purchase.createdAt).fromNow()}</p>

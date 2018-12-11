@@ -63,6 +63,16 @@ class BagNew extends React.Component {
                     </div>
                     <div className="field">
                       <div className="control">
+                        <input className="input" onChange={this.handleChange}   value={this.state.stock || ''}  name="stock"  placeholder="stock"/>
+                      </div>
+                    </div>
+                    <div className="field">
+                      <div className="control">
+                        <input className="input" onChange={this.handleChange}   value={this.state.unitCost || ''}  name="unitCost"  placeholder="unitCost"/>
+                      </div>
+                    </div>
+                    <div className="field">
+                      <div className="control">
                         <input className="input" onChange={this.handleChange}   value={this.state.image || ''}  name="image"  placeholder="imageUrl"/>
                       </div>
                     </div>

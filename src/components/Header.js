@@ -35,7 +35,7 @@ class Header extends React.Component {
             {isAuthenticated() && <a className="navbar-item bar" onClick={this.handleLogout}>LOGOUT { username.toUpperCase() }</a>}
             {isAuthenticated() && getBasket() && <Link className="navbar-item bar" to='/basket'> <i className="fas fa-shopping-basket"></i>  { basketAmount()}</Link>}
             {isAuthenticated() && pathname !== '/basket' &&  <Link className="navbar-item bar" to='/basket'> SHOPPING CART</Link>}
-            {isAuthenticated() && pathname !== '/purchases'  && <Link className="navbar-item bar" to='/purchases'>ORDER HISTORY</Link>}
+            {isAuthenticated() &&  pathname !== '/purchases'  && <Link className="navbar-item bar" to='/purchases'>ORDER HISTORY</Link>}
             {isAdmin()&& <Link className="navbar-item bar" to='/allpurchases'>ALL PURCHASES</Link>}
             {/* {isAuthenticated() && <p className="navbar-item">Welcome back! {decodeToken().username}</p>} */}
           </div>

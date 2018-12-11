@@ -84,7 +84,7 @@ const bagData =[
     description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
     retailPrice: 1850,
     unitCost: 950,
-    stock: 3
+    stock: 8
   },
   {
     _id: bagIds[2],
@@ -129,7 +129,7 @@ const bagData =[
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     retailPrice: 1850,
     unitCost: 1000,
-    stock: 2
+    stock: 0
   }];
 
 
