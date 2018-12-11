@@ -27,7 +27,7 @@ class Register extends React.Component {
   render() {
     return (
       <section className="hero is-light is-fullheight">
-        <div className="hero-body">
+        <div className="hero-body form">
           <div className="container has-text-centered">
             <div className="columns is-mobile is-tablet is-desktop">
               <div className="column is-4-desktop is-offset-4-desktop is-6-tablet is-12-mobile">
@@ -49,7 +49,7 @@ class Register extends React.Component {
                         <input className="input" onChange={this.handleChange}   value={this.state.password || ''}  name="password" type="password" placeholder="password"/>
                       </div>
                     </div>
-                    <button className="button is-dark">Register</button>
+                    <button className="button is-dark">Submit</button>
                   </form>
                 </div>
               </div>

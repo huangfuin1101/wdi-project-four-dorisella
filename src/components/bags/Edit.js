@@ -11,7 +11,6 @@ class BagUpdate extends React.Component{
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   componentDidMount(){
@@ -70,12 +69,12 @@ class BagUpdate extends React.Component{
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value= {this.state.bag.stock || ''}  name="stock"  placeholder="unstock"/>
+                        <input className="input" onChange={this.handleChange}   value= { this.state.bag.stock  || ''}   name="stock"  placeholder="unstock"/>
                       </div>
                     </div>
                     <div className="field">
                       <div className="control">
-                        <input className="input" onChange={this.handleChange}   value= {this.state.bag.unitCost || ''}  name="unitCost"  placeholder="unitCost"/>
+                        <input className="input" onChange={this.handleChange}   value= { this.state.bag.unitCost || ''}  name="unitCost"  placeholder="unitCost"/>
                       </div>
                     </div>
                     <div className="field">

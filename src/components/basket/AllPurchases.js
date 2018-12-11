@@ -29,59 +29,58 @@ class AllPurchases extends React.Component {
             <h2 className='title is-3 has-text-centered order-title'>ALL ORDER HISTORY</h2>
             <hr />
             <div className="hero-body bag-order">
-            <div className="columns is-mobile">
-              <div className="column is-1">
-                <h5 className="has-text-centered has-text-weight-bold font">CUSTOMER</h5>
-              </div>
-              <div className="column is-2">
-                <h5 className="has-text-centered has-text-weight-bold font">PRODUCT</h5>
-              </div>
-              <div className="column is-2">
-                <h5 className="has-text-centered has-text-weight-bold font">DESCRIPTION</h5>
-              </div>
-              <div className="column is-1">
-                <h5 className="has-text-centered has-text-weight-bold font">AMOUNT</h5>
-              </div>
-              <div className="column is-1">
-                <h5 className="has-text-centered has-text-weight-bold font">UNIT</h5>
-              </div>
-              <div className="column is-2">
-                <h5 className="has-text-centered has-text-weight-bold font">SUBTOTAL</h5>
-              </div>
-              <div className="column is-1">
-                <h5 className="has-text-centered has-text-weight-bold font">GROSS PROFIT</h5>
-              </div>
-              <div className="column is-1">
-                <h5 className="has-text-centered has-text-weight-bold font">REMAINING STOCK</h5>
-              </div>
-              <div className="column is-2">
-                <h5 className="has-text-centered has-text-weight-bold font">ORDER TIME</h5>
+              <div className="columns is-mobile font">
+                <div className="column is-1">
+                  <h5 id="customer" className="has-text-centered has-text-weight-bold">CUSTOMER</h5>
+                </div>
+                <div className="column is-2">
+                  <h5 id="product" className="has-text-centered has-text-weight-bold">PRODUCT</h5>
+                </div>
+                <div className="column is-2">
+                  <h5 className="has-text-centered has-text-weight-bold">DESCRIPTION</h5>
+                </div>
+                <div className="column is-1">
+                  <h5 className="has-text-centered has-text-weight-bold">AMOUNT</h5>
+                </div>
+                <div className="column is-1">
+                  <h5 className="has-text-centered has-text-weight-bold unit">UNIT</h5>
+                </div>
+                <div className="column is-2">
+                  <h5 className="has-text-centered has-text-weight-bold">SUBTOTAL</h5>
+                </div>
+                <div className="column is-1">
+                  <h5 className="has-text-centered has-text-weight-bold">GROSS PROFIT</h5>
+                </div>
+                <div className="column is-1">
+                  <h5 id="remain-stock"className="has-text-centered has-text-weight-bold">REMAINING STOCK</h5>
+                </div>
+                <div className="column is-2">
+                  <h5 className="has-text-centered has-text-weight-bold">ORDER TIME</h5>
+                </div>
               </div>
             </div>
-            </div>
-
-            <div className="hero-body bag-name">
+            <div className="hero-body">
               {
                 this.state.purchases && this.state.purchases.map(purchase =>
-                  <div key={purchase._id} className="columns is-mobile">
+                  <div key={purchase._id} id="bottom-line" className="columns is-mobile">
                     <div className="column is-1">
                       <p className="has-text-left">{purchase.user.username}</p>
                     </div>
                     <div className="column is-2">
                       <Link to={`/bags/${purchase.bag._id}`}>
-                        <figure  className="image order-img">
+                        <figure  id="order-img" className="image ">
                           <img id="sold-pic" src={ purchase.bag.image} />
                         </figure>
                       </Link>
                     </div>
                     <div className="column is-2">
-                      <p className="has-text-centered bag-name">{purchase.bag.name}</p>
+                      <p id="bag-name" className="has-text-left">{purchase.bag.name}</p>
                     </div>
                     <div className="column is-1">
                       <p className="has-text-centered">£ {purchase.retailPrice}</p>
                     </div>
                     <div className="column is-1">
-                      <p className="has-text-centered">{purchase.unitQuantity}</p>
+                      <p className="has-text-centered unit">{purchase.unitQuantity}</p>
                     </div>
                     <div className="column is-2">
                       <p className="has-text-centered"> £ {purchase.totalPrice}</p>

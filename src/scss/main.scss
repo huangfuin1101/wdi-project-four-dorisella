@@ -5,6 +5,8 @@
 @import "pages/home";
 @import "pages/index";
 @import "pages/show";
+@import "pages/allPurchase";
+@import "pages/order";
 
 
 .pic {
@@ -36,12 +38,6 @@
 .bag-name{
   font-size: 15px;
 }
-.bag-order{
-  font-size: 16px;
-}
-.order-img{
-  width:8vw;
-}
-.remain{
-  color: black;
+.form{
+  margin-bottom: 10vh;
 }
