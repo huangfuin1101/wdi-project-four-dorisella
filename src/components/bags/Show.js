@@ -67,13 +67,11 @@ export default class BagShow extends React.Component {
             </div>
             :
             <p>Please wait...</p>}
-
           {bag
             ?
             <div className="column is-6">
               { bag.stock <= 3 && bag.stock > 0 && <p className="hurry">Hurry! Only {bag.stock} in stock</p> }
               { bag.stock === 0 &&  <p className="hurry">Out of stock !!! </p> }
-
             </div>
             :
             <p>Please wait</p> }
