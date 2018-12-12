@@ -62,7 +62,7 @@ export default class BagShow extends React.Component {
           {bag
             ?
             <div className="column is-3 is-offset-3">
-              { !bag.stock === 0 &&  <input className="input" type="number" max='10' min='1' name="quantity"
+              { bag.stock > 0 &&  <input className="input" type="number" max='10' min='1' name="quantity"
                 value={this.state.quantity || 0} onChange={this.handleChange}/> }
             </div>
             :
@@ -80,7 +80,7 @@ export default class BagShow extends React.Component {
           {bag
             ?
             <div className="column is-3">
-              { !bag.stock === 0 && <button id="add-btn" className="button is-dark" onClick={this.handleClick}>Add</button> }
+              {  bag.stock > 0 && <button id="add-btn" className="button is-dark" onClick={this.handleClick}>Add</button> }
             </div>
             :
             <p>Please wait</p> }
