@@ -1,8 +1,8 @@
-/* global describe,it,beforeEach */
+/* global describe,it */
 import React from 'react';
-import axios from 'axios';
-import sinon from 'sinon';
-import { shallow, mount } from 'enzyme';
+// import axios from 'axios';
+// import sinon from 'sinon';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import BagBox from '../../../src/components/bags/BagBox';
 
@@ -23,6 +23,7 @@ describe('BagBox', () => {
     const component = shallow(<BagBox bag={testData}/>);
     expect(component.find('img').length).to.eq(1);
     expect(component.find('img').props().src).to.eq(testData.image);
+    console.log(component.debug());
     done();
   });
 });

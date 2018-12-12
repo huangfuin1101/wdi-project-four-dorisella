@@ -1,8 +1,8 @@
-/* global describe,it,beforeEach */
+/* global describe,it */
 import React from 'react';
 import axios from 'axios';
 import sinon from 'sinon';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import BagIndex from '../../../src/components/bags/Index';
 
@@ -20,7 +20,6 @@ const testData =[{
   name: 'MALL BIG BAG',
   brand: 'LOWEWE',
   image: 'https://images.pexels.com/photos/1590796/pexels-photo-1590796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-  // image: 'https://www.celine.com/dw/image/v2/BBST_PRD/on/demandware.static/-/Sites-masterCatalog/default/dw84c2988c/images/large/183313A4U.38NO_1_LIBRARY_81246.jpg?sw=1156&sh=1600&sm=fit&strip=false',
   detail: '9 X 10 X 9 IN (24 X 26 X 22 CM)  100% CLFSKIN SILVER METAL HARDWARE  100% CALFSKIN LINING  FUNCTIONAL LEATHER BELT TO TIGHTEN THE BAG AND INNER',
   description: 'MINI BELT BAG IN GRAINED CALFSKIN WITH A LEATHER HANDLE,A REMOVABLE SHOULDER STRAP, AND A ZIPPED OUTER POCKET ON THE BACK. THE BAG CLOSES TWO WAYS: TOP FLAP AND ZIPPER.',
   retailPrice: 1850,
@@ -43,7 +42,6 @@ const testData =[{
   _id: 1223,
   name: 'CABAS PHANTOM IN SOFT GRAINED CALFSKIN',
   brand: 'BLUBERRY',
-  // image: 'https://www.celine.com/dw/image/v2/BBST_PRD/on/demandware.static/-/Sites-masterCatalog/default/dw06ceccc0/images/large/174143TNI.18TP_2_LIBRARY_80861.jpg?sw=1156&sh=1600&sm=fit&strip=false',
   image: 'https://images.pexels.com/photos/1068638/pexels-photo-1068638.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
   detail: '11 X 14 X 8 IN (28 X 36 X 21 CM) 100% CALFSKIN GOLD METAL HARDWARE 100% CALFSKIN LINING',
   description: 'MEDIUM CABAS PHANTOM IN SOFT GRAINED CALFSKIN WITH LEATHER HANDLES AND STRAPS TO TIGHTEN THE BAG',
@@ -86,6 +84,13 @@ describe('Bag Index', () => {
     expect(component.find('BagBox').length).to.eq(testData.length);
     done();
     console.log(component.debug());
+  });
+
+  it('should show the correct number of .search input', done => {
+    const component = shallow(<BagIndex />);
+    component.setState({ filteredBags: testData });
+    expect(component.find('.search').length).to.eq(1);
+    done();
   });
 
   it('should have the correct bag in each BagBox', done => {
