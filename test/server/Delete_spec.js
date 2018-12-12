@@ -1,8 +1,13 @@
 /* global describe, it, expect, api, beforeEach */
+
 const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const { secret } = require('../../config/environment');
 const Bag = require('../../models/bag');
+// const User = require('../../models/user');
+// const jwt = require('jsonwebtoken');
+// const { secret } = require('../../config/environment');
+// const Bag = require('../../models/bag');
 
 const bagIds = [
   '5be9860fcb16d525543cebb2'
@@ -25,7 +30,8 @@ const bagData =[
 let token;
 let bagId;
 
-describe('BAG UPDATE', () => {
+
+describe('BAG DELETE', () => {
 
   beforeEach(done => {
     Bag.remove({})
@@ -44,9 +50,8 @@ describe('BAG UPDATE', () => {
         done();
       });
   });
-
   it('should return a 404 response without a token', done => {
-    api.put(`/api/bags/${bagId}`)
+    api.delete(`/api/bags/${bagId}`)
       .end((err, res) => {
         expect(res.status).to.eq(404);
         done();
@@ -54,38 +59,11 @@ describe('BAG UPDATE', () => {
   });
 
   it('should return a 401 response', done => {
-    api.put(`/api/bags/${bagId}`)
+    api.delete(`/api/bags/${bagId}`)
       .set('Authorization', `Bearer ${token}`)
       .send(bagData)
       .end((err, res) => {
         expect(res.status).to.eq(401);
-        done();
-      });
-  });
-
-  it('should return an object', done => {
-    api.put(`/api/bags/${bagId}`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(bagData)
-      .end((err, res) => {
-        expect(res).to.be.an('object');
-        done();
-      });
-  });
-
-  it('should return the correct data', done => {
-    api.put(`/api/movies/${bagId}`)
-      .set('Authorization', `Bearer ${token}`)
-      .send(bagData)
-      .end((err, res) => {
-        expect(res.body.name).to.eq(bagData.name);
-        expect(res.body.image).to.eq(bagData.image);
-        expect(res.body.brand).to.eq(bagData.brand);
-        expect(res.body.brand).to.eq(bagData.brand);
-        expect(res.body.detail).to.eq(bagData.detail);
-        expect(res.body.description).to.eq(bagData.description);
-        expect(res.body.stock).to.eq(bagData.stock);
-        expect(res.body.retailPrice).to.eq(bagData.retailPrice);
         done();
       });
   });
