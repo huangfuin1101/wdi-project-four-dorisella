@@ -36,7 +36,6 @@ export default class BagShow extends React.Component {
   }
 
   handleClick() {
-    // console.log(quantity);
     addItem(this.state.bag, parseInt(this.state.quantity));
     this.props.history.push('/basket');
   }
@@ -58,12 +57,17 @@ export default class BagShow extends React.Component {
           </div>
           :
           <p>Please wait...</p>}
+
         { isAuthenticated() && <div className="columns is-mobile is-mutiline add">
-          <div className="column is-3 is-offset-3">
-            {/* <label htmlFor="quantity" className="label">Quantity</label> */}
-            <input className="input" type="number" max='10' min='1' name="quantity"
-              value={this.state.quantity || 0} onChange={this.handleChange}/>
-          </div>
+          {bag
+            ?
+            <div className="column is-3 is-offset-3">
+              { !bag.stock === 0 &&  <input className="input" type="number" max='10' min='1' name="quantity"
+                value={this.state.quantity || 0} onChange={this.handleChange}/> }
+            </div>
+            :
+            <p>Please wait...</p>}
+
           {bag
             ?
             <div className="column is-6">
@@ -73,13 +77,15 @@ export default class BagShow extends React.Component {
             </div>
             :
             <p>Please wait</p> }
-
-          <div className="column is-3">
-            <button id="add-btn" className="button is-dark" onClick={this.handleClick}>Add</button>
-          </div>
+          {bag
+            ?
+            <div className="column is-3">
+              { !bag.stock === 0 && <button id="add-btn" className="button is-dark" onClick={this.handleClick}>Add</button> }
+            </div>
+            :
+            <p>Please wait</p> }
         </div>}
         <div className="columns is-mobile is-12">
-          {/* <div className="column is-4 is-offset-3"> */}
           { isAdmin() && <button className="button is-light has-text-centered deletebtn" onClick={this.handleDelete} >Delete</button>}
           { isAdmin() &&  <Link to={`/bags/${this.props.match.params.id}/edit`}>
             <button className="button is-dark has-text-centered edit">Edit</button>
