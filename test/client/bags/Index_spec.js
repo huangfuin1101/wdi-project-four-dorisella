@@ -1,4 +1,4 @@
-/* global after, before, beforeEach, describe, it */
+/* global after, before, beforeEach, describe, it, console */
 
 import React from 'react';
 import { MemoryRouter, Route  } from 'react-router-dom';
@@ -20,6 +20,7 @@ const bagData = {
   retailPrice: 2000,
   stock: 2,
   unitCost: 2000
+
 };
 
 // Since there is no router, there is no this.props.match.params.id!
@@ -33,7 +34,7 @@ const bagData = {
   // let promise = null;
   // let wrapper = null;
 
-  before(done =describe('BagIndex tests', () => {
+describe('BagIndex tests', () => {
   let promise = null;
   let wrapper = null;
 
@@ -60,20 +61,12 @@ const bagData = {
   it('should display six bags', done => {
     promise.then(() => {
       wrapper.update();
-      expect(wrapper.find('bag').length).to.eq(6);
+      // expect(wrapper.find('column').length).to.eq(6);
+      console.log(wrapper.debug());
       done();
-    });
+    })
+      .catch(done);
   });
 
-  // it('should have links to the correct show pages', done => {
-  //   promise.then(() => {
-  //     wrapper.update();
-  //     for(let i = 0; i < 6; i++) {
-  //       expect(wrapper.find({ Link: `/bags/${bagData[i]._id}` }).length).to.eq(1);
-  //     }
-  //     done();
-  //   });
-  // });
 
-
-}));
+});
