@@ -20,7 +20,6 @@ export function getItem(basket, itemId) {
 }
 
 export function addItem(itemToAdd, quantity) {
-  console.log('this is Q id', itemToAdd);
   const basket = getBasket();
   itemToAdd.bag = itemToAdd._id;
   if (!getItem(basket, itemToAdd._id))
@@ -68,10 +67,6 @@ export function totalBasketPrice() {
 
 export function basketAmount() {
   console.log('getBasket', getBasket);
-  // const basket = getBasket();
-  // const basketItem = basket.map(item => item.unitQuantity);
-  // return basketItem.reduce();
-
   return getBasket().length;
 }
 
@@ -89,9 +84,7 @@ export function checkout() {
       this.setState({ outOfStock: error.response.data.outOfStock });
       // createFlashMessage('Insufficient Stock', error);
       // this.props.history.replace('/basket');
-
     });
-
 }
 
 export default {

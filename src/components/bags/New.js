@@ -12,13 +12,11 @@ class BagNew extends React.Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log('this is result', this.state);
+    // console.log('this is result', this.state);
     axios.post('/api/bags', this.state, {headers: {
       Authorization: `Bearer ${getToken()}`}})
       .then(result => {
         this.props.history.push(`/bags/${result.data._id}`);
-        console.log('this is result', result);
-        // this.props.history.push(`/bags/${result.data._id}`);
       });
   }
 

@@ -17,7 +17,6 @@ class Flash extends React.Component {
   }
 
 
-
   clearMessage() {
     clearFlashMessage();
     this.setState({ flash: null });

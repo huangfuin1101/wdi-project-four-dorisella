@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-
-
 const bagSchema = new mongoose.Schema({
   name: String,
   brand: String,

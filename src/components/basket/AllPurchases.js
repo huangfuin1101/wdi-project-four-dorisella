@@ -21,7 +21,6 @@ class AllPurchases extends React.Component {
   }
   render() {
     console.log(this.state.purchases);
-    // const purchases = this.state.purchases;
     return(
       <main>
         <div className="section is-large">

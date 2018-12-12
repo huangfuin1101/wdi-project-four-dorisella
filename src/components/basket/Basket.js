@@ -41,10 +41,9 @@ class Basket extends React.Component {
 
 
   render() {
-    console.log('this is basket', this.state.basket);
     const basket = this.state.basket;
     const hasItems = basket && !!basket.length;
-    console.log('this.state.outOfStock', this.state.outOfStock);
+    // console.log('this.state.outOfStock', this.state.outOfStock);
     return (
       <main>
         <section className="section is-small">

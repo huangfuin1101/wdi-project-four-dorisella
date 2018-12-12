@@ -10,17 +10,6 @@ const purchaseSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-// function checkQuantity(quantity, respond) {
-//   console.log('Validating', this, quantity);
-//   this.populate('bag', () => {
-//     const enoughStock = this.bag.stock >= this.unitQuantity;
-//     if(!enoughStock){
-//       respond(false);
-//     } else {
-//       respond(true);
-//     }
-//   });
-// }
 
 purchaseSchema.pre('validate', function(next){
   this.populate('bag', () => {

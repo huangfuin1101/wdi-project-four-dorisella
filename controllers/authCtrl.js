@@ -12,7 +12,6 @@ function registerRoute(req, res, next) {
 }
 
 function loginRoute(req, res, next) {
-  console.log('this is req.body.email', req.body.email);
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user && user.validatePassword(req.body.password)) {
@@ -33,10 +32,6 @@ function loginRoute(req, res, next) {
     })
     .catch(next);
 }
-
-
-
-
 
 
 

@@ -9,7 +9,6 @@ function allPurchase(req, res, next) {
 }
 
 function createPurchase(req, res, next) {
-  console.log('this is req.body', req.body);
   if(Array.isArray(req.body)) {
     req.body.forEach(purchase => {
       purchase.user = req.tokenUserId;

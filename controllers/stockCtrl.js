@@ -10,8 +10,6 @@ function stockIndexRoute(req, res, next) {
     .catch(next);
 }
 
-
-
 module.exports = {
   stockIndex: stockIndexRoute
 };

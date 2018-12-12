@@ -37,7 +37,6 @@ class App extends React.Component {
                 <Route exact path="/bags/new" component={BagNew} />
                 <Route exact path="/basket" component={Basket} />
                 <Route exact path="/purchases" component={Purchase} />
-                {/* <Route exact path="/stats" component={AllPurchases} /> */}
                 <Route exact path="/allpurchases" component={AllPurchases} />
                 <Route path="/bags/:id/edit" component={BagEdit} />
                 <Route path="/bags/:id" component={BagShow} />

@@ -13,7 +13,6 @@ export default class BagShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // bag: {}
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChange = this.handleChange.bind(this);

@@ -6,7 +6,6 @@ import axios from 'axios';
 class Index extends React.Component{
   constructor(props){
     super(props);
-    // this.state = {};
     this.state = {
       search: ''
     };
@@ -40,9 +39,6 @@ class Index extends React.Component{
               <input className="search" placeholder=" 🔍" ref={input => this.search = input}  onChange={this.handleSearch}/>
             </form>
           </div>
-          {/* <div className="column is-2">
-            <i className="fas fa-search search"></i>
-          </div> */}
         </div>
         <div className="columns is-multiline is-mobile">
           {this.state.filteredBags ?
@@ -56,7 +52,6 @@ class Index extends React.Component{
     );
   }
 }
-
 
 
 
