@@ -13,7 +13,7 @@ const purchaseSchema = new mongoose.Schema({
 purchaseSchema.pre('validate', function(next){
   this.populate('bag', () => {
     const enoughStock = this.bag.stock >= this.unitQuantity;
-    console.log('purchasing',this.bag._id, 'enough stock?', enoughStock);
+    // console.log('purchasing',this.bag._id, 'enough stock?', enoughStock);
     if(!enoughStock){
       this.invalidate(this.bag._id.toString(), 'not enough stock');
       console.log('purchasing',this, 'enough stock?', enoughStock);

@@ -70,7 +70,6 @@ export function basketAmount() {
   return getBasket().length;
 }
 
-
 export function checkout() {
   axios.post('/api/checkout', getBasket(), {headers: {
     Authorization: `Bearer ${getToken()}`}})
