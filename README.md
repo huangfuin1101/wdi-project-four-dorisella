@@ -5,36 +5,48 @@
 [GitHub Repo](https://github.com/huangfuin1101/wdi-project-four-dorisella)
 
 
-## Home page
-![](screenshots/home.gif)
+## Home Page
+![Home page](screenshots/home.gif)
 
-## Collection
-![](screenshots/index.png)
+## Collection (Bag Index)
+![Collection](screenshots/index.png)
 
 ## Register
-![](screenshots/register.png)
+![Register](screenshots/register.png)
 
 ## Login
-![](screenshots/login.png)
+![Login](screenshots/login.png)
 
-## Buy a bag
-![](screenshots/show.gif)
+## Buy a Bag (Bag Show)
+![Buy a bag (Bag Show)](screenshots/show.gif)
 
 ## Basket
-![](screenshots/basket.png)
+![Basket](screenshots/basket.png)
 
-## Order history
-![](screenshots/order-history.png)
+## Order History
+![Order history](screenshots/order-history.png)
 
-## Add an item
-![](screenshots/add.png)
+## Add an Item
+![Add an Item](screenshots/add.png)
 
-## Edit an item
-![](screenshots/edit.png)
+## Edit an Item
+![Edit an Item](screenshots/edit.png)
 
-## All purchase history
-![](screenshots/all-order.png)
+## All Purchase History
+![All Purchase History](screenshots/all-order.png)
 
+---
+
+## Project Brief
+
+* Build a full-stack application by making your own backend and your own front-end
+* Use an Express API to serve your data from a Mongo database
+* Consume your API with a separate front-end built with React
+* Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
+* Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut
+* Have a visually impressive design to kick your portfolio up a notch and have something to wow future clients & employers. ALLOW time for this.
+* Be deployed online so it's publicly accessible.
+* Have automated tests for at least one RESTful resource on the back-end, and at least one classical and one functional component on the front-end. Improve your employability by demonstrating a good understanding of testing principals.
 
 ## Technologies Used
 
@@ -72,37 +84,88 @@
 * Adobe XD CC
 * Trello
 
-
-
-
-
 ## Approach Taken
 
 ### Wireframes
+The wireframes are made by Adobe XD.
 
-### Brief
+#### Home
+![Home Pge](wireframs/home.png)
+
+#### Collection (Bag Index)
+![Collection](wireframs/index.png)
+
+#### Register
+![Register](wireframs/register.png)
+
+#### Login
+![Login](wireframs/login.png)
+
+#### Buy a bag (Bag Show)
+![Bag Show](wireframs/show.png)
+
+#### Basket
+![Basket](wireframs/basket.png)
+
+#### Order history
+![Order History](wireframs/order.png)
 
 
-#### Server-side
+## Functionality
+I used Trello to organise this project.
+
+![Trello Board](wireframs/trello.png)
 
 
-#### Client-side
 
 
 ### Featured Piece of Code no.1
 ```
+purchaseSchema.pre('validate', function(next){
+  this.populate('bag', () => {
+    const enoughStock = this.bag.stock >= this.unitQuantity;
+    // console.log('purchasing',this.bag._id, 'enough stock?', enoughStock);
+    if(!enoughStock){
+      this.invalidate(this.bag._id.toString(), 'not enough stock');
+      console.log('purchasing',this, 'enough stock?', enoughStock);
+    }
+    next();
+  });
+});
+
+purchaseSchema.pre('save', function(next){
+  this.populate('bag', () => {
+    this.bag.stock -= this.unitQuantity;
+    this.bag.save(() => next());
+  });
+});
 
 ```
 ### Featured Piece of Code no.2
 
 ```
+export function checkout() {
+  axios.post('/api/checkout', getBasket(), {headers: {
+    Authorization: `Bearer ${getToken()}`}})
+    .then(() => {
+      createBasket();
+      createFlashMessage('Thank you for purchase');
+      this.props.history.push('/purchases');
+    })
+    .catch((error) => {
+      console.log('outOfStock', error.response.data.outOfStock);
+      this.setState({ outOfStock: error.response.data.outOfStock });
+    });
+}
 
-
+<div className="column is-2 has-text-centered">
+{this.state.outOfStock.includes(item._id) && <p>Out of stock</p>}
+</div>
 ```
 ### Featured Piece of Code no.3
 
 ```
-}
+
 ```
 
 ### Styling
@@ -113,3 +176,6 @@
 
 
 ### Future Features
+There are some features I would like to add in the future:
+
+* Improve responsive design.
