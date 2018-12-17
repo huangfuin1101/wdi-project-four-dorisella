@@ -4,7 +4,7 @@
 
 [GitHub Repo](https://github.com/huangfuin1101/wdi-project-four-dorisella)
 
-Dorisella is an online shopping website especially for women's handbags. It allows user to purchase the item when register and login. User can add items in the basket, also can check order history when purchase is successful. Once login ad admin identity, items can be added, updated and deleted. All the purchases made can be traced to adjust the stock condition.
+Dorisella is an online shopping website, especially for women's handbags. It allows the user to purchase the item when register and login. The user can add items in the basket, also can check order history when the purchase is successful. Once login ad admin identity, items can be added, updated and deleted. All the purchases made can be traced to adjust the stock condition.
 
 ## Home Page
 ![Home page](screenshots/home.gif)
@@ -117,12 +117,13 @@ I used Trello to organise this project.
 
 ![Trello Board](wireframs/trello.png)
 
-I began with the backend, aiming to have a strong and stable back end before rendering front end pages. Most of the back end were managed to work and tested in a few days, except for the part that check stock and tell which item is not enough stock, which was a bit challenged at the beginning.
+I began with the backend, aiming to have a strong and stable back end before rendering front end pages. Most of the back end was managed to work and tested in a few days, except for the part that checks stock and tells which item is not enough stock, which was a bit challenged at the beginning.
 
-For the front end, I worked on rendering most of the pages at first. and then added the stock check part later on. I finished most of front end at the beginning and then left some time for styling.
+For the front end, I worked on rendering most of the pages at first. and then added the stock check part later on. I finished most of the front end at the beginning and then left some time for styling.
+
 ### Featured Piece of Code no.1
 
-This is where to check if the purchased item is enough compared with the stock. If it's enough, the current stock will be taken out the unitQuantity been purchased. I used pre validate to check if the stock is enough for purchase, if so, the purchase will be created and takes out from the current stock. If insufficient stock, by using error handler, catching the error to showing the id of item which is not enough stock.
+This is where to check if the purchased item is enough compared with the stock. If it's enough, the current stock will be taken out the unitQuantity been purchased. I used pre validate to check if the stock is enough for purchase, if so, the purchase will be created and takes out from the current stock. If insufficient stock, by using error handler, catching the error to showing the id of the item which is not enough stock.
  [./models/purchase.js](https://github.com/huangfuin1101/wdi-project-four-dorisella/blob/master/models/purchase.js).
 
 ```JavaScript
@@ -145,7 +146,7 @@ purchaseSchema.pre('save', function(next){
 
 ```
 ### Featured Piece of Code no.2
-When press the checkout button, if all the items been purchased have enough stock, then purchase will be successful; if one of the item is insufficient, then catch the error, outOfStock showing the id of insufficient stock item.
+When press the checkout button, if all the items been purchased have enough stock, then purchase will be successful; if one of the items is insufficient, then catch the error, outOfStock showing the id of the item  which doesn't have enough stock.
 From [./src/lib/basket.js](https://github.com/huangfuin1101/wdi-project-four-dorisella/blob/master/src/lib/basket.js).
 
 ```JavaScript
@@ -168,16 +169,15 @@ From [./src/components/basket/Basket.js](https://github.com/huangfuin1101/wdi-pr
 ```JavaScript
 {this.state.outOfStock.includes(item._id) && <p>Out of stock</p>}
 ```
-
 ### Styling
-I tried to keep the styling minimal. Basically the colour scheme is black and white , shows classic at the same time presents fashionable atmosphere.
+I tried to keep the styling minimal. Basically, the colour scheme is black and white, shows classic at the same time presents a fashionable atmosphere.
 
 ### Wins and Blockers
 Comparing the stock amount and the purchase quantity to see if the item is enough/not enough stock on the backend and showing the "out of stock" item on the front end was a huge wine also a block. It was tricky to compare the purchase quantity and the stock. After that, check which item is not enough in stock when making multiple purchases was another challenge.
 
 Styling was another win. I'm happy with how it looks by using Bulma to display the page plus black and white design. The fixed-bottom navbar is another made the finishing point.
 
-Write frond end testing was another challenge as I have only practiced little and it was quite different from backend text.
+Write front end testing was another challenge as I have only practiced little and it was quite different from backend text.
 
 
 ### Future Features
