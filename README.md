@@ -4,7 +4,7 @@
 
 [GitHub Repo](https://github.com/huangfuin1101/wdi-project-four-dorisella)
 
-Dorisella is an online shopping website, especially for women's handbags. It allows the user to purchase the item when register and login. The user can add items in the basket, also can check order history when the purchase is successful. Once login ad admin identity, items can be added, updated and deleted. All the purchases made can be traced to adjust the stock condition.
+Dorisella is an online shopping website, especially for women's handbags. It allows the user to purchase the item when register and login. The user can add items in the basket, also can check order history when the purchase is successful. Once login as admin identity, items can be added, updated and deleted. All the purchases made can be traced to adjust the stock condition.
 
 ## Home Page
 ![Home page](screenshots/home.gif)
